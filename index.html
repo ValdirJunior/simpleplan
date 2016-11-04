@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>SimplePlan</title>
+	<link rel="icon" type="image/png" href="./img/icon.ico" />
+	<link rel="stylesheet" href="./bts/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="./bts/css/bootstrap-theme.min.css"/>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12 col-xs-12">
+				<div class="panel panel-success" id="first">
+					<div class="panel-heading">
+						<h3 class="panel-title">Panel title</h3>
+					</div>
+					<div id="bodyVr" class="panel-body">
+						<h3>Qual Problema Deseja Resolver</h3>
+						<div class="radio">
+						  <label>
+						    <input type="radio" name="rdFunction" id="rdMaxOpt" value="max" checked>
+						    Maximizar
+						  </label>
+						</div>
+
+						<div class="radio">
+						  <label>
+						    <input type="radio" name="rdFunction" id="rdMinOpt" value="min">
+						    Minimizar
+						  </label>
+						</div>
+						
+						<h3>Quais as Variáveis de Decisão deste Problema?</h3>
+						<div class="input-group" id="vrs-first">
+							<form class="form-inline vrd" id="fvr1">
+								<div class="form-group">
+									<input type="text" id="vr1" class="form-control" placeholder="Variável" aria-describedby="basic-addon1">
+								</div>
+								<div class="form-group">
+									<input type="text" id="v1" class="form-control" placeholder="Valor" aria-describedby="basic-addon1">
+								</div>
+							</form>
+							<form class="form-inline vrd" id="fvr2">
+								<div class="form-group">
+									<input type="text" id="vr2" class="form-control" placeholder="Variável" aria-describedby="basic-addon1">
+								</div>
+								<div class="form-group">
+									<input type="text" id="v2" class="form-control" placeholder="Valor" aria-describedby="basic-addon1">
+								</div>
+							</form>
+							<form class="form-inline vrd" id="fvr3">
+								<div class="form-group">
+									<input type="text" id="vr3" class="form-control" placeholder="Variável" aria-describedby="basic-addon1">
+								</div>
+								<div class="form-group">
+									<input type="text" id="v3" class="form-control" placeholder="Valor" aria-describedby="basic-addon1">
+								</div>
+							</form>
+
+							<button type="button" id="btnAddVr" class="btn btn-default btn-sm">
+								<span class="glyphicon glyphicon-plus"  aria-hidden="true"></span>
+							</button>	
+						</div>
+					</div>
+					
+					<div class="panel-footer">
+						<button type="button" id="btnNextPanel" class="btn btn-default btn-sm">
+							<span class="glyphicon glyphicon glyphicon-chevron-right"  aria-hidden="true"></span>
+						</button>
+					</div>					
+				</div>
+
+				<div class="panel panel-success" id="second">
+					<div class="panel-heading">
+						<h3 class="panel-title">Panel title</h3>
+					</div>
+					<div class="panel-body" id="second-body">
+						<h3>Elabora a função objetivo</h3>
+						<div class="input-group" id="vrs-second">
+							<form class="form-inline" id="svr1">
+								
+							</form>
+						</div>
+
+						<h3>Existem Restrições?</h3>
+						<form class="form-inline vrd" id="frt1">
+								<div class="form-group">
+									<input type="text" id="rt1" class="form-control" placeholder="Variável" aria-describedby="basic-addon1">
+								</div>
+								<div class="form-group">
+									<input type="text" id="r1" class="form-control" placeholder="Valor" aria-describedby="basic-addon1">
+								</div>
+						</form>	
+					</div>
+					
+					<div class="panel-footer">
+						<button type="button" id="btnPrevPanel" class="btn btn-default btn-sm">
+						  <span class="glyphicon glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						</button>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+	<script src="./js/jquery_311.js"></script>
+	<script src="./bts/js/bootstrap.js"></script>
+	<script>
+		 $(function() {
+
+		 	var qtdV = 3;
+		 	var vs = new Array();
+
+			$("#second").hide();
+
+		    $("#btnNextPanel").click(function(){
+		    	var qtdVTotal = $(".vrd").length;
+		    	$(".vrd").each(function(index){
+		    		index += 1;
+
+		    		var vr = $("#vr"+index).val();
+		    		var va = $("#v"+index).val();
+
+		    		if(vr == "")
+		    			vr = 'v'+index;
+
+		    		if(va == "")
+		    			va = 0;
+
+		    		vs[index] = {vr:vr, va:va};
+		    		//console.log(vs[index]['vr']);
+
+		    		var el = "<div class='form-group vobj'><input type='text' id='vr"+index+"' class='form-control' value="+vs[index]['vr']+" aria-describedby='basic-addon1' readonly></div>";
+
+		    		$("#svr1").append(el);
+		    		if(index < qtdVTotal){
+			    		var op = "<div class='form-group vobj'><select class='form-control' id='opobj"+index+"'><option value='+'>+</option><option value='-'>-</option><option value='*'>*</option><option value='/'>/</option></select></div>";
+
+			    		console.log(op);
+			    		$("#svr1").append(op);
+		    		}
+			    });
+
+		    	$("#first").hide();
+		    	$("#second").show();
+		    });	
+
+		    $("#btnPrevPanel").click(function(){
+
+		    	$('.vobj').each(function(index){
+		    		$(this).remove();
+		    	});
+
+		    	$("#first").show();
+		    	$("#second").hide();
+		    });	
+
+		    $("#btnAddVr").click(function(){
+		    	qtdV++;
+		    	var el = "<form class='form-inline vrd' id='fvr"+qtdV+"'><div class='form-group'><input type='text' id='vr"+qtdV+"' class='form-control' placeholder='Variável' aria-describedby='basic-addon1'></div>\n<div class='form-group'><input type='text' id='v"+qtdV+"' class='form-control' placeholder='Valor' aria-describedby='basic-addon1'></div></form>"
+		    	
+		    	$(el).insertAfter("#fvr"+(--qtdV));
+		    	qtdV++;
+		    });	
+		  });
+	</script>
+</body>
+</html>
