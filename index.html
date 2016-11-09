@@ -33,33 +33,38 @@
 						
 						<h3>Quais as Variáveis de Decisão deste Problema?</h3>
 						<div class="input-group" id="vrs-first">
-							<form class="form-inline vrd" id="fvr1">
-								<div class="form-group">
-									<input type="text" id="vr1" class="form-control" placeholder="Variável" aria-describedby="basic-addon1">
-								</div>
-								<div class="form-group">
-									<input type="text" id="v1" class="form-control" placeholder="Valor" aria-describedby="basic-addon1">
-								</div>
-							</form>
-							<form class="form-inline vrd" id="fvr2">
-								<div class="form-group">
-									<input type="text" id="vr2" class="form-control" placeholder="Variável" aria-describedby="basic-addon1">
-								</div>
-								<div class="form-group">
-									<input type="text" id="v2" class="form-control" placeholder="Valor" aria-describedby="basic-addon1">
-								</div>
-							</form>
-							<form class="form-inline vrd" id="fvr3">
-								<div class="form-group">
-									<input type="text" id="vr3" class="form-control" placeholder="Variável" aria-describedby="basic-addon1">
-								</div>
-								<div class="form-group">
-									<input type="text" id="v3" class="form-control" placeholder="Valor" aria-describedby="basic-addon1">
-								</div>
-							</form>
-
+							<div id="allVr">
+								<form class="form-inline vrd" id="fvr1">
+									<div class="form-group">
+										<input type="text" id="vr1" class="form-control" placeholder="Variável" aria-describedby="basic-addon1">
+									</div>
+									<div class="form-group">
+										<input type="text" id="v1" class="form-control" placeholder="Valor" aria-describedby="basic-addon1">
+									</div>
+								</form>
+								<form class="form-inline vrd" id="fvr2">
+									<div class="form-group">
+										<input type="text" id="vr2" class="form-control" placeholder="Variável" aria-describedby="basic-addon1">
+									</div>
+									<div class="form-group">
+										<input type="text" id="v2" class="form-control" placeholder="Valor" aria-describedby="basic-addon1">
+									</div>
+								</form>
+								<form class="form-inline vrd" id="fvr3">
+									<div class="form-group">
+										<input type="text" id="vr3" class="form-control" placeholder="Variável" aria-describedby="basic-addon1">
+									</div>
+									<div class="form-group">
+										<input type="text" id="v3" class="form-control" placeholder="Valor" aria-describedby="basic-addon1">
+									</div>
+								</form>
+							</div>
 							<button type="button" id="btnAddVr" class="btn btn-default btn-sm">
 								<span class="glyphicon glyphicon-plus"  aria-hidden="true"></span>
+							</button>
+
+							<button type="button" id="btnDelVr" class="btn btn-default btn-sm">
+								<span class="glyphicon glyphicon-minus"  aria-hidden="true"></span>
 							</button>	
 						</div>
 					</div>
@@ -84,14 +89,30 @@
 						</div>
 
 						<h3>Existem Restrições?</h3>
-						<form class="form-inline vrd" id="frt1">
-								<div class="form-group">
-									<input type="text" id="rt1" class="form-control" placeholder="Variável" aria-describedby="basic-addon1">
-								</div>
-								<div class="form-group">
-									<input type="text" id="r1" class="form-control" placeholder="Valor" aria-describedby="basic-addon1">
-								</div>
-						</form>	
+						<div class="allRt">
+							
+						<!-- 
+						<div  id="frt1">
+							<form class="form-inline rtrd">
+									<div class="form-group">
+										<input type="text" id="rt1" class="form-control" placeholder="Variável" aria-describedby="basic-addon1">
+									</div>
+									<div class="form-group">
+										<input type="text" id="r1" onkeyup="alteraRtv(1)" class="form-control" placeholder="Valor" aria-describedby="basic-addon1">
+									</div>
+							</form>	
+							<form class="form-inline" id="frto1">
+							    
+						  	</form>
+					  	</div> -->
+					  	</div>
+				  		<button type="button" id="btnAddRt" class="btn btn-default btn-sm">
+							<span class="glyphicon glyphicon-plus"  aria-hidden="true"></span>
+						</button>
+
+						<button type="button" id="btnDelRt" class="btn btn-default btn-sm">
+							<span class="glyphicon glyphicon-minus"  aria-hidden="true"></span>
+						</button>
 					</div>
 					
 					<div class="panel-footer">
@@ -109,11 +130,16 @@
 		 $(function() {
 
 		 	var qtdV = 3;
+		 	var qtdR = 1;
 		 	var vs = new Array();
 
 			$("#second").hide();
 
 		    $("#btnNextPanel").click(function(){
+
+			   	var frt = "<div id='frt1' class='frt'><form class='form-inline rtrd'><div class='form-group'><input type='text' id='rt1' class='form-control' placeholder='Variável' aria-describedby='basic-addon1'></div><div class='form-group'><input type='text' id='r1' onkeyup='alteraRtv(1)' class='form-control' placeholder='Valor' aria-describedby='basic-addon1'></div></form><form class='form-inline' id='frto1'></form></div>";
+			   	$(".allRt").append(frt);
+
 		    	var qtdVTotal = $(".vrd").length;
 		    	$(".vrd").each(function(index){
 		    		index += 1;
@@ -128,18 +154,28 @@
 		    			va = 0;
 
 		    		vs[index] = {vr:vr, va:va};
-		    		//console.log(vs[index]['vr']);
+		    		console.log(vs[index]['vr']);
+		    		
+		    		if(index <= qtdVTotal){
+		    			var el = "<div class='form-group vobj'><input type='text' id='vr"+index+"' class='form-control' value="+vs[index]['vr']+" aria-describedby='basic-addon1' readonly></div>";
+		    			$("#svr1").append(el);
 
-		    		var el = "<div class='form-group vobj'><input type='text' id='vr"+index+"' class='form-control' value="+vs[index]['vr']+" aria-describedby='basic-addon1' readonly></div>";
-
-		    		$("#svr1").append(el);
-		    		if(index < qtdVTotal){
+		    			var elrt = "<div class='form-group rtobj'><div class='input-group'><span class='input-group-addon' id='basic-addon1'>"+vs[index]['vr']+" X </span><input type='text' id='vrt"+qtdR+"-"+index+"' class='form-control' placeholder='Valor' aria-describedby='basic-addon1'></div></div>";
+		    			$("#frto"+qtdR).append(elrt);
+		    		}
+		    		if(index <= qtdVTotal-1){	
 			    		var op = "<div class='form-group vobj'><select class='form-control' id='opobj"+index+"'><option value='+'>+</option><option value='-'>-</option><option value='*'>*</option><option value='/'>/</option></select></div>";
-
-			    		console.log(op);
 			    		$("#svr1").append(op);
+
+			    		var oprt = "<div class='form-group rtobj'><h4><span class='label label-default'>+</span></h4></div>";
+			    		$("#frto"+qtdR).append(oprt);	
 		    		}
 			    });
+			    var oprt = "<div class='form-group rtobj'><h4><span class='label label-default'><=</span></h4></div>";
+			   	$("#frto"+qtdR).append(oprt);
+
+			   	var elrt = "<div class='form-group rtobj'><div class='input-group'><input type='text' class='form-control' id='rap"+qtdR+"' placeholder='Valor' aria-describedby='basic-addon1'></div></div>";
+			   	$("#frto"+qtdR).append(elrt);
 
 		    	$("#first").hide();
 		    	$("#second").show();
@@ -151,18 +187,110 @@
 		    		$(this).remove();
 		    	});
 
+		    	$('.frt').each(function(index){
+		    		$(this).remove();
+		    	});
+		    	qtdR = 1;
+
 		    	$("#first").show();
 		    	$("#second").hide();
 		    });	
 
 		    $("#btnAddVr").click(function(){
-		    	qtdV++;
-		    	var el = "<form class='form-inline vrd' id='fvr"+qtdV+"'><div class='form-group'><input type='text' id='vr"+qtdV+"' class='form-control' placeholder='Variável' aria-describedby='basic-addon1'></div>\n<div class='form-group'><input type='text' id='v"+qtdV+"' class='form-control' placeholder='Valor' aria-describedby='basic-addon1'></div></form>"
-		    	
-		    	$(el).insertAfter("#fvr"+(--qtdV));
-		    	qtdV++;
+		    	if(qtdV == 0)
+		    	{
+		    		qtdV++;
+			    	var el = "<form class='form-inline vrd' id='fvr"+qtdV+"'><div class='form-group'><input type='text' id='vr"+qtdV+"' class='form-control' placeholder='Variável' aria-describedby='basic-addon1'></div>\n<div class='form-group'><input type='text' id='v"+qtdV+"' class='form-control' placeholder='Valor' aria-describedby='basic-addon1'></div></form>";
+
+			    	$('#allVr').append(el);_
+		    	}
+		    	else
+		    	{
+			    	qtdV++;
+			    	var el = "<form class='form-inline vrd' id='fvr"+qtdV+"'><div class='form-group'><input type='text' id='vr"+qtdV+"' class='form-control' placeholder='Variável' aria-describedby='basic-addon1'></div>\n<div class='form-group'><input type='text' id='v"+qtdV+"' class='form-control' placeholder='Valor' aria-describedby='basic-addon1'></div></form>";
+			    	
+			    	$(el).insertAfter("#fvr"+(--qtdV));
+			    	qtdV++;
+			    }
 		    });	
+
+
+		    $("#btnDelVr").click(function(){
+		    	$("form").remove("#fvr"+qtdV);
+		    	qtdV--;
+		    });
+
+		    $("#btnAddRt").click(function(){
+		    	if(qtdR == 0)
+		    	{
+		    		qtdR++;
+
+			    	var el = "<div  id='frt"+qtdR+"' class='frt'><form class='form-inline rtrd'><div class='form-group'><input type='text' id='rt"+qtdR+"' class='form-control' placeholder='Variável' aria-describedby='basic-addon1'></div><div class='form-group'><input type='text' id='r"+qtdR+"' onkeyup='alteraRtv("+qtdR+")' class='form-control' placeholder='Valor' aria-describedby='basic-addon1'></div></form><form class='form-inline' id='frto"+qtdR+"'></form></div>";
+			    	//$(el).insertAfter("#frt"+(--qtdR));
+			    	$('.allRt').append(el);
+			    	//qtdR++;
+
+			    	var qtdVTotal = $(".vrd").length;
+			    	$(".vrd").each(function(index){
+			    		index += 1;
+			    		
+			    		if(index <= qtdVTotal){var elrt = "<div class='form-group rtobj'><div class='input-group'><span class='input-group-addon' id='basic-addon1'>"+vs[index]['vr']+" X </span><input type='text' id='vrt"+qtdR+"-"+index+"' class='form-control' placeholder='Valor' aria-describedby='basic-addon1'></div></div>";
+			    			$("#frto"+qtdR).append(elrt);
+			    		}
+			    		if(index <= qtdVTotal-1){
+			    			var oprt = "<div class='form-group rtobj'><h4><span class='label label-default'>+</span></h4></div>";
+				    		$("#frto"+qtdR).append(oprt);	
+			    		}
+				    });
+				    var oprt = "<div class='form-group rtobj'><h4><span class='label label-default'><=</span></h4></div>";
+				   	$("#frto"+qtdR).append(oprt);
+
+				   	var elrt = "<div class='form-group rtobj'><div class='input-group'><input type='text' class='form-control' id='rap"+qtdR+"' placeholder='Valor' aria-describedby='basic-addon1'></div></div>";
+				   	$("#frto"+qtdR).append(elrt);
+		    	}
+		    	else
+		    	{
+		    		qtdR++;
+
+			    	var el = "<div  id='frt"+qtdR+"' class='frt'><form class='form-inline rtrd'><div class='form-group'><input type='text' id='rt"+qtdR+"' class='form-control' placeholder='Variável' aria-describedby='basic-addon1'></div><div class='form-group'><input type='text' id='r"+qtdR+"' onkeyup='alteraRtv("+qtdR+")' class='form-control' placeholder='Valor' aria-describedby='basic-addon1'></div></form><form class='form-inline' id='frto"+qtdR+"'></form></div>";
+			    	$(el).insertAfter("#frt"+(--qtdR));
+			    	qtdR++;
+
+			    	var qtdVTotal = $(".vrd").length;
+			    	$(".vrd").each(function(index){
+			    		index += 1;
+			    		
+			    		if(index <= qtdVTotal){var elrt = "<div class='form-group rtobj'><div class='input-group'><span class='input-group-addon' id='basic-addon1'>"+vs[index]['vr']+" X </span><input type='text' id='vrt"+qtdR+"-"+index+"' class='form-control' placeholder='Valor' aria-describedby='basic-addon1'></div></div>";
+			    			$("#frto"+qtdR).append(elrt);
+			    		}
+			    		if(index <= qtdVTotal-1){
+			    			var oprt = "<div class='form-group rtobj'><h4><span class='label label-default'>+</span></h4></div>";
+				    		$("#frto"+qtdR).append(oprt);	
+			    		}
+				    });
+				    var oprt = "<div class='form-group rtobj'><h4><span class='label label-default'><=</span></h4></div>";
+				   	$("#frto"+qtdR).append(oprt);
+
+				   	var elrt = "<div class='form-group rtobj'><div class='input-group'><input type='text' class='form-control' id='rap"+qtdR+"' placeholder='Valor' aria-describedby='basic-addon1'></div></div>";
+				   	$("#frto"+qtdR).append(elrt);
+		    	}
+		    	
+
+		    });	
+
+		    $("#btnDelRt").click(function(){
+		    	$("div").remove("#frt"+qtdR);
+		    	qtdR--;
+		    });
+
+
 		  });
+
+			function alteraRtv(r)
+			{
+				console.log(1);
+		    	$("#rap"+r).val($("#r"+r).val());
+			}
 	</script>
 </body>
 </html>
