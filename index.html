@@ -13,7 +13,7 @@
 			<div class="col-md-12 col-xs-12">
 				<div class="panel panel-success" id="first">
 					<div class="panel-heading">
-						<h3 class="panel-title">Panel title</h3>
+						<h3 class="panel-title">SimplePlan - Simplex</h3>
 					</div>
 					<div id="bodyVr" class="panel-body">
 						<h3>Qual Problema Deseja Resolver</h3>
@@ -78,7 +78,7 @@
 
 				<div class="panel panel-success" id="second">
 					<div class="panel-heading">
-						<h3 class="panel-title">Panel title</h3>
+						<h3 class="panel-title">SimplePlan - Simplex</h3>
 					</div>
 					<div class="panel-body" id="second-body">
 						<h3>Elabora a função objetivo</h3>
@@ -119,6 +119,9 @@
 						<button type="button" id="btnPrevPanel" class="btn btn-default btn-sm">
 						  <span class="glyphicon glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
 						</button>
+						<button type="button" id="btnResultPanel" class="btn btn-default btn-sm">
+						  Resolver
+						</button>
 					</div>
 				</div>	
 			</div>
@@ -154,7 +157,7 @@
 		    			va = 0;
 
 		    		vs[index] = {vr:vr, va:va};
-		    		console.log(vs[index]['vr']);
+		    		//console.log(vs[index]['vr']);
 		    		
 		    		if(index <= qtdVTotal){
 		    			var el = "<div class='form-group vobj'><input type='text' id='vr"+index+"' class='form-control' value="+vs[index]['vr']+" aria-describedby='basic-addon1' readonly></div>";
@@ -195,6 +198,7 @@
 		    	$("#first").show();
 		    	$("#second").hide();
 		    });	
+
 
 		    $("#btnAddVr").click(function(){
 		    	if(qtdV == 0)
@@ -282,6 +286,28 @@
 		    	$("div").remove("#frt"+qtdR);
 		    	qtdR--;
 		    });
+
+
+		    $("#btnResultPanel").click(function(){
+
+		    	console.log(vs[1]['vr']);
+
+		    	var restricoes = new Array();
+		    	var linhas = qtdR + 1;
+		    	var colunas = qtdR + qtdV+2;
+
+		    	for(i = 1; i <= qtdR; i++)
+		    	{
+		    		restricoes[i] = new Array();
+		    		for(j = 1; j <= qtdV; j++)
+		    		{
+		    			restricoes[i][j] = $("#vrt"+i+"-"+j+"").val();
+		    		}
+		    	}
+
+		    	console.log(restricoes);
+
+		    });	
 
 
 		  });
