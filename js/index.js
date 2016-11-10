@@ -25,13 +25,14 @@ $(function() {
                 va = 0;
 
             vs[index] = {vr:vr, va:va};
+            console.log(vs);
             //console.log(vs[index]['vr']);
 
             if(index <= qtdVTotal){
-                var el = "<div class='form-group vobj'><input type='text' id='vr"+index+"' class='form-control' value="+vs[index]['vr']+" aria-describedby='basic-addon1' readonly></div>";
+                var el = "<div class='form-group vobj'><input type='text' id='vr"+index+"' class='form-control' value="+vs[index]['va']+vs[index]['vr']+" aria-describedby='basic-addon1' readonly></div>";
                 $("#svr1").append(el);
 
-                var elrt = "<div class='form-group rtobj'><div class='input-group'><span class='input-group-addon' id='basic-addon1'>"+vs[index]['vr']+" X </span><input type='text' id='vrt"+qtdR+"-"+index+"' class='form-control' placeholder='Valor' aria-describedby='basic-addon1'></div></div>";
+                var elrt = "<div class='form-group rtobj'><div class='input-group'><input type='text' id='vrt"+qtdR+"-"+index+"' class='form-control' placeholder='Valor' aria-describedby='basic-addon1'><span class='input-group-addon' id='basic-addon1'>"+vs[index]['vr']+" X </span></div></div>";
                 $("#frto"+qtdR).append(elrt);
             }
             if(index <= qtdVTotal-1){   
@@ -128,7 +129,7 @@ $(function() {
             $(".vrd").each(function(index){
                 index += 1;
 
-                if(index <= qtdVTotal){var elrt = "<div class='form-group rtobj'><div class='input-group'><span class='input-group-addon' id='basic-addon1'>"+vs[index]['vr']+" X </span><input type='text' id='vrt"+qtdR+"-"+index+"' class='form-control' placeholder='Valor' aria-describedby='basic-addon1'></div></div>";
+                if(index <= qtdVTotal){var elrt = "<div class='form-group rtobj'><div class='input-group'><input type='text' id='vrt"+qtdR+"-"+index+"' class='form-control' placeholder='Valor' aria-describedby='basic-addon1'><span class='input-group-addon' id='basic-addon1'>"+vs[index]['vr']+" X </span></div></div>";
                     $("#frto"+qtdR).append(elrt);
                 }
                 if(index <= qtdVTotal-1){
