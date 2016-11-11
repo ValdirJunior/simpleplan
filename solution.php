@@ -1,4 +1,6 @@
 <?php
+//echo(json_encode($_REQUEST));
+
 echo "<pre>";
 $funcao = $_POST['funcao'];
 $variaveis = $_POST['variaveis'];

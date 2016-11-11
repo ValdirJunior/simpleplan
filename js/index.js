@@ -25,7 +25,7 @@ $(function() {
                 va = 0;
 
             vs[index] = {vr:vr, va:va};
-            console.log(vs);
+            //console.log(vs);
             //console.log(vs[index]['vr']);
 
             if(index <= qtdVTotal){
@@ -153,19 +153,23 @@ $(function() {
 
     $("#btnResultPanel").click(function(){
 
-        console.log(vs[1]['vr']);
+        //console.log(vs[1]['vr']);
 
         var restricoes = new Array();
+        var b = new Array();
         var linhas = qtdR + 1;
         var colunas = qtdR + qtdV+2;
 
         for(i = 1; i <= qtdR; i++)
         {
-            restricoes[i] = new Array();
+            var vRestricoes = new Array();
+
             for(j = 1; j <= qtdV; j++)
             {
-                restricoes[i][j] = $("#vrt"+i+"-"+j+"").val();
+                vRestricoes[j] = $("#vrt"+i+"-"+j+"").val();
+                //console.log($("#vrt"+i+"-"+j+"").val());
             }
+            restricoes[i] = vRestricoes;
             restricoes[i][qtdV+1] = $("#rap"+i+"").val();
         }
         objetivo = new Array();
@@ -178,10 +182,13 @@ $(function() {
         variaveis = JSON.stringify(vs);
         objetivo = JSON.stringify(objetivo);
 
-        $.post("execucao.php", {restricoes: restricoes, variaveis: variaveis, objetivo: objetivo, funcao: funcao})
-            .done(function(data) {
-                console.log(data);
-            });
+        $.ajax({                                      
+            url: 'solution.php',       
+            type: "POST",
+            data: {restricoes: restricoes, variaveis: variaveis, objetivo: objetivo, funcao: funcao}
+        }).done(function(msg) {
+            console.log(msg);
+        });
 
     }); 
 
