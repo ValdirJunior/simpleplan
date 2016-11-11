@@ -8,10 +8,10 @@ Bacharelado em Ciência da Computação / 6º Semestre / UNIVEM
 Disciplina de Pesquisa Operacional
 Prof. Ricardo Sabatine.
 
-<p>Bruno Vernaschi.                     RA: 54100-1</p>
-<p>Danielle Guindas Peraccini.        	RA: 54502-3</p>
-<p>Marina dos Santos Beretta.           RA: 54272-5</p>
-<p>Valdir A. P. Junior.                 RA: 53582-6</p>
+Bruno Vernaschi.                     RA: 54100-1<br/>
+Danielle Guindas Peraccini.        	RA: 54502-3<br/>
+Marina dos Santos Beretta.           RA: 54272-5<br/>
+Valdir A. P. Junior.                 RA: 53582-6<br/>
 
 #Introdução
 Este domumento fornece uma visão geral do aplicativo SimplePlan que foi projetado a partir da utilização do método Simplex, a fim de resolver problemas de programação linear com objetivo de maximizar e minimizar.
