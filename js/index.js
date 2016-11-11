@@ -3,6 +3,7 @@ $(function() {
     var qtdV = 3;
     var qtdR = 1;
     var vs = new Array();
+    var solucao;
 
     $("#second").hide();
 
@@ -170,7 +171,7 @@ $(function() {
                 //console.log($("#vrt"+i+"-"+j+"").val());
             }
             restricoes[i] = vRestricoes;
-            restricoes[i][qtdV+1] = $("#rap"+i+"").val();
+            b[i] = $("#rap"+i+"").val();
         }
         objetivo = new Array();
         for(i = 1; i <= qtdV; i++)
@@ -178,15 +179,17 @@ $(function() {
             objetivo[i] = $("#opobj"+i).val();
         }
         funcao = $(".radio :checked").val();
-        restricoes = JSON.stringify(restricoes);
-        variaveis = JSON.stringify(vs);
-        objetivo = JSON.stringify(objetivo);
+        //restricoes = JSON.stringify(restricoes);
+        //variaveis = JSON.stringify(vs);
+        variaveis = vs;
+        //objetivo = JSON.stringify(objetivo);
 
         $.ajax({                                      
             url: 'solution.php',       
             type: "POST",
-            data: {restricoes: restricoes, variaveis: variaveis, objetivo: objetivo, funcao: funcao}
+            data: {restricoes: restricoes, variaveis: variaveis, objetivo: objetivo, funcao: funcao, b : b}
         }).done(function(msg) {
+            solucao = msg;
             console.log(msg);
         });
 
