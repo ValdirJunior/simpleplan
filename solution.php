@@ -8,6 +8,7 @@ $variaveis = $_POST['variaveis'];
 $objetivo = $_POST['objetivo'];
 $restricoes = $_POST['restricoes'];
 $b = $_POST['b'];
+$iteracoes = $_POST['iteracoes'];
 //echo json_encode($b);
 
 // echo("funcao -> ".$funcao);echo "<br>";
@@ -15,7 +16,7 @@ $b = $_POST['b'];
 // echo("objetivo -> ".$objetivo);echo "<br>";
 // echo("restricoes -> ".$restricoes);echo "<br>";
 
-$problem = new Problem($variaveis, $restricoes, $funcao, $objetivo, $b);
+$problem = new Problem($variaveis, $restricoes, $funcao, $objetivo, $b, $iteracoes);
 $problem->resolve();
 //echo json_encode($problem->getResult());
 

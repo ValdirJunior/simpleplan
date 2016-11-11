@@ -4,6 +4,7 @@ $(function() {
     var qtdR = 1;
     var vs = new Array();
     var solucao;
+    var iteracoes = 0;
 
     $("#second").hide();
     $("#result").hide();
@@ -165,6 +166,7 @@ $(function() {
         var linhas = qtdR + 1;
         var colunas = qtdR + qtdV+2;
         var solucao;
+        iteracoes = $("#nOp").val();
 
         for(i = 1; i <= qtdR; i++)
         {
@@ -192,7 +194,7 @@ $(function() {
         $.ajax({                                      
             url: 'solution.php',       
             type: "POST",
-            data: {restricoes: restricoes, variaveis: variaveis, objetivo: objetivo, funcao: funcao, b : b}
+            data: {restricoes: restricoes, variaveis: variaveis, objetivo: objetivo, funcao: funcao, b : b, iteracoes: iteracoes}
         }).done(function(msg) {
             console.log(msg);
             solucao = jQuery.parseJSON(msg);

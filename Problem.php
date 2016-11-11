@@ -10,18 +10,20 @@ class Problem
 	public $objetivo;
 	public $restricoes;
 	public $b;
+	public $iteracoes;
 
 	public $tabela = array();
 	public $parciais = array();
 	public $nt = 0;
 
-	function __construct($variaveis, $restricoes, $funcao, $objetivo, $b)
+	function __construct($variaveis, $restricoes, $funcao, $objetivo, $b, $iteracoes)
 	{
 		$this->variaveis = $variaveis;
 		$this->restricoes = $restricoes;
 		$this->funcao = $funcao;
 		$this->objetivo = $objetivo;
 		$this->b = $b;
+		$this->iteracoes = $iteracoes;
 
 		$this->nvariaveis = count($this->variaveis)-1;
 		$this->nrestricoes = count($this->restricoes)-1;
@@ -76,7 +78,7 @@ class Problem
 	public function resolve()
 	{
 		
-		while($this->hasNegativeValue())
+		while($this->hasNegativeValue() && ($this->iteracoes == 0 || $this->iteracoes > $this->nt))
 		{
 			$lineInputVariable = $this->getInputVariable();
 			$outputLine = $this->getOutputLine($lineInputVariable);
@@ -93,6 +95,9 @@ class Problem
 			
 			$this->calculateNewLines($newLineP, $lineInputVariable, $outputLine);
 			$this->nt++;
+
+			if($this->nt == 50) // tratativa para funções ilimitadas
+				break;
 		}
 		
 		$this->parciais[$this->nt]["tabela"] = $this->tabela;
