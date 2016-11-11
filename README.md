@@ -53,6 +53,27 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
 <li><strong>Solução:</strong> Produzir resultados a partir da execução do algoritmo de Simplex. </li>
 </ul>
 
+#Ferramentas
+<table>
+  <tr>
+    <th>Tecnologias</th>
+    <th>Descrição</th>
+     </tr>
+  <tr>
+  <td>Front-end</td>
+  <td>Javascript/CSS/html</td>
+  </tr>
+ <tr>
+  <td>Back-end</td>
+  <td>PHP</td>
+  </tr>
+ <tr>
+  <td>Servidor</td>
+  <td>Hostinger</td>
+  </tr>
+
+</table>
+
 #Problemas e Limitações
 
 #Datas Importantes 
