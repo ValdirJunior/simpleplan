@@ -57,3 +57,75 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
 
 #Datas Importantes 
 
+<table>
+  <tr>
+    <th>Data</th>
+    <th>Evento</th>
+      </tr>
+  <tr>
+    <td></td>
+    <td>Inicio do projeto.</td>   
+  </tr>
+  <tr>
+    <td></td>
+    <td>Conhecimento do cenário e requisitos.</td>   
+  </tr>
+  <tr>
+    <td></td>
+    <td>Definição das funcionalidades.</td>   
+  </tr>
+  <tr>
+    <td></td>
+    <td>Definição das ferramentas pára a implementação.</td>   
+  </tr>
+  <tr>
+    <td></td>
+    <td>Elaboração do layout.</td>   
+  </tr>
+  <tr>
+    <td></td>
+    <td>Inicio do desenvolvimento.</td>   
+  </tr>
+  <tr>
+    <td>06/11/2016</td>
+    <td>Validaçãp dos testes da primeira versão.</td>   
+  </tr>
+  <tr>
+    <td>07/11/2016</td>
+    <td>Finalização do primeiro MVP.</td>   
+  </tr> 
+  <tr>
+    <td>08/11/2016</td>
+    <td>Desenvolvimento  dos requisitos ainda não implementados. </td>   
+  </tr> 
+  <tr>
+    <td>10/11/2016</td>
+    <td>Validação dos testes das novas funções inseridas.</td>   
+  </tr>  
+  <tr>
+    <td>10/11/2016</td>
+    <td>Liberação em ambiente de produção.</td>   
+  </tr> 
+  <tr>
+    <td>11/11/2016</td>
+    <td>Entrega da versão final do Simplex.</td>   
+  </tr>
+    <tr>
+    <td>11/11/2016</td>
+    <td>Conclusão do relatório.</td>   
+  </tr>
+</table>
+
+#Compatibilidade
+<table>
+  <tr>
+    <th>Navegadores</th>
+    <td>Google Chrome, Mozilla Firefox, Opera, Safari, Internet Explorer 9+</td>
+    </tr>
+  <tr>
+  <th>Sistemas Operacionais</th>
+  <td>Unix, Windows</td>
+  </tr>
+</table>
+
+
