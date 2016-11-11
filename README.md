@@ -4,8 +4,8 @@ Link da aplicação online: http://simpleplan.esy.es/
 
 Projeto: <strong>Elaboração e implementação de um software para solução de problemas  Programação Linear (Simplex)</strong>
 
-Bacharelado em Ciência da Computação / 6º Semestre / UNIVEM 
-Disciplina de Pesquisa Operacional
+Bacharelado em Ciência da Computação / 6º Semestre / UNIVEM </br>
+Disciplina de Pesquisa Operacional</br>
 Prof. Ricardo Sabatine.
 
 Bruno Vernaschi.                    RA: 54100-1<br/>
