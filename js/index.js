@@ -166,9 +166,22 @@ $(function() {
             {
                 restricoes[i][j] = $("#vrt"+i+"-"+j+"").val();
             }
+            restricoes[i][qtdV+1] = $("#rap"+i+"").val();
         }
+        objetivo = new Array();
+        for(i = 1; i <= qtdV; i++)
+        {
+            objetivo[i] = $("#opobj"+i).val();
+        }
+        funcao = $(".radio :checked").val();
+        restricoes = JSON.stringify(restricoes);
+        variaveis = JSON.stringify(vs);
+        objetivo = JSON.stringify(objetivo);
 
-        console.log(restricoes);
+        $.post("execucao.php", {restricoes: restricoes, variaveis: variaveis, objetivo: objetivo, funcao: funcao})
+            .done(function(data) {
+                console.log(data);
+            });
 
     }); 
 
