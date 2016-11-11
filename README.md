@@ -21,11 +21,14 @@ A aplicação foi elaborada utilizando a técnica de MVP  (Minimum Viable Produc
 #Funcionamento do Simplex
 
 #Requisitos do cliente
-Sem número fixo de variáveis de decisão;
-Sem número fixo de restrição;
-Apresentar solução final em forma de relatório;
-Apresentar análise de sensibilidade;
-Exibir passo-a-passo do relatório de resultados;
-Tratar métodos com soluções impossíveis ou limitadas;
+
+<ul>
+<li>Sem número fixo de variáveis de decisão;</li>
+<li>Sem número fixo de restrição;</li>
+<li>Apresentar solução final em forma de relatório;</li>
+<li>Apresentar análise de sensibilidade;</li>
+<li>Exibir passo-a-passo do relatório de resultados;</li>
+<li>Tratar métodos com soluções impossíveis ou limitadas.</li>
+</ul>
 
 
