@@ -34,11 +34,12 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
 
 #Objetivos
 <p align="justify">Pensando na usabilidade do produto e na experiência do usuário com a aplicação, foram definidos como objetivos alguns valores considerados relevantes para o projeto, seguem:</p>
-
-<strong>Dinamismo:</strong> Utilização de parâmetros dinâmicos para que a solução atenda aos problemas de programação linear do cliente;</br>
-<strong>Praticidade:</strong>Elaboração de um software que seja rápido e cômodo para </br>
-<strong>Acessibilidade:</strong> Aplicação de fácil acesso, sem necessidade de instalação de programas execíficos para ser executado.</br>
-<strong>Didático:</strong> Estruturação de técnicas simples e intuitivas para que o usuário possa facilmente identificar as funções de cada elemento da interface. </br>
+<ul>
+<li><strong>Dinamismo:</strong> Utilização de parâmetros dinâmicos para que a solução atenda aos problemas de programação linear do cliente.</li>
+<li><strong>Praticidade:</strong >Elaboração de um software que seja rápido e cômodo para favorecer a experiência do user. </li>
+<li><strong>Acessibilidade:</strong> Aplicação de fácil acesso, sem necessidade de instalação de programas execíficos para ser executado.</li>
+<li><strong>Didático:</strong> Estruturação de técnicas simples e intuitivas para que o usuário possa facilmente identificar as funções de cada elemento da interface. </li>
+</ul>
 
 #Funcionalidades
 <p align="justify">Dentro do escopo estabelecido, foram definidas nove principais funcionalidades para atender a todas as solicitações do cliente, sendo estas as que seguem:</p>
