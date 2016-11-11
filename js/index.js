@@ -6,6 +6,7 @@ $(function() {
     var solucao;
 
     $("#second").hide();
+    $("#result").hide();
 
     $("#btnNextPanel").click(function(){
 
@@ -156,10 +157,14 @@ $(function() {
 
         //console.log(vs[1]['vr']);
 
+        $("#result").show();
+        $("#second").hide();
+
         var restricoes = new Array();
         var b = new Array();
         var linhas = qtdR + 1;
         var colunas = qtdR + qtdV+2;
+        var solucao;
 
         for(i = 1; i <= qtdR; i++)
         {
@@ -189,16 +194,186 @@ $(function() {
             type: "POST",
             data: {restricoes: restricoes, variaveis: variaveis, objetivo: objetivo, funcao: funcao, b : b}
         }).done(function(msg) {
-            solucao = msg;
             console.log(msg);
+            solucao = jQuery.parseJSON(msg);
+
+            if($("#showAllProcess").is(':checked'))
+            {
+                console.log(solucao);
+                np = solucao.qtdFinal;
+                console.log(np);
+
+                for(ik = 0; ik <= np; ik++)
+                {
+                    console.log(solucao[ik].tabela);
+                    //TABLE HEAD
+                    var el = "<div class='table-responsive' id='ts"+ik+"'><table class='table table-hover'><thead><tr id='tbHead"+ik+"'><th>Z</th></tr></thead><tbody id='tbBody"+ik+"'></tbody></table><div>";
+                    $("#thirdy-body").append(el);
+
+                    vs.forEach(function(element, index, array){
+                        var el = "<th>"+element['vr']+"</th>"; 
+                        $("#tbHead"+ik).append(el);
+                    })
+
+                    restricoes.forEach(function(element, index, array){
+                        var el = "<th>f"+index+"</th>"; 
+                        $("#tbHead"+ik).append(el);
+                    })
+
+                    var el = "<th>B</th>"; 
+                    $("#tbHead"+ik).append(el);
+                    //////////////////////////
+
+                    final = solucao[ik].tabela;
+                    for(i = 0; i < qtdR+1; i++)
+                    {
+                        var ell = "<tr id='l"+ik+"-"+i+"'></tr>";
+                        console.log(ell);
+                        $("#tbBody"+ik).append(ell);
+                    }
+
+                    for(i = 0; i < final.z.length; i++)
+                    {
+                        var elz = "<td>"+final.z[i]+"</td>";
+                        $("#l"+ik+"-"+i+"").append(elz);  
+                    }                     
+
+                    console.log(final);
+                    vs.forEach(function(element, index, array){
+                        elv = element['vr'];
+                        totalv = final[elv].length;
+                        for(i = 0; i < totalv; i++)
+                        {
+                            //console.log(final[elv][i]);
+                            var elva = "<td>"+final[elv][i].toFixed(2)+"</td>";
+                            console.log(elva);
+                            $("#l"+ik+"-"+i+"").append(elva);  
+                        } 
+                    })
+
+                    for(i = 1; i <= qtdR; i++)
+                    {
+                        totalr = final['fx'+i].length;
+                        console.log(final['fx'+i][0]);
+                        for(j = 0; j < totalr; j++)
+                        {
+                            var elrt = "<td>"+final['fx'+i][j].toFixed(2)+"</td>";
+                            $("#l"+ik+"-"+j+"").append(elrt);
+                        }
+                    }
+
+                    for(i = 0; i < final.b.length; i++)
+                    {
+                        var elb = "<td>"+final.b[i].toFixed(2)+"</td>";
+                        $("#l"+ik+"-"+i+"").append(elb);  
+                    }
+
+                    console.log(solucao[ik].solucao);
+                    for(i = 0; i < solucao[ik].solucao.length; i++)
+                    {
+                        if(solucao[ik].otima)
+                            var elso = "<h4><span class='label label-success'>"+solucao[ik].solucao[i].v+"="+final.b[solucao[ik].solucao[i].l].toFixed(2)+"</span></h4>";
+                        else
+                            var elso = "<h4><span class='label label-warning'>"+solucao[ik].solucao[i].v+"="+final.b[solucao[ik].solucao[i].l].toFixed(2)+"</span></h4>";
+
+                        $(elso).insertAfter("#ts"+ik+"");
+                    }
+                }
+            }
+            else
+            {
+                //TABLE HEAD
+                 var el = "<div class='table-responsive' id='ts'><table class='table table-hover'><thead><tr id='tbHead'><th>Z</th></tr></thead><tbody id='tbBody'></tbody></table><div>";
+                 $("#thirdy-body").append(el);
+
+                 vs.forEach(function(element, index, array){
+                   var el = "<th>"+element['vr']+"</th>"; 
+                   $("#tbHead").append(el);
+                 })
+
+                 restricoes.forEach(function(element, index, array){
+                   var el = "<th>f"+index+"</th>"; 
+                   $("#tbHead").append(el);
+                 })
+
+                 var el = "<th>B</th>"; 
+                 $("#tbHead").append(el);
+                //////////////////////////
+                
+                final = solucao.final;
+                for(i = 0; i < qtdR+1; i++)
+                {
+                    var ell = "<tr id='l"+i+"'></tr>";
+                    console.log(ell);
+                    $("#tbBody").append(ell);
+                }
+
+                for(i = 0; i < final.z.length; i++)
+                {
+                    var elz = "<td>"+final.z[i].toFixed(2)+"</td>";
+                    $("#l"+i).append(elz);  
+                }                     
+
+                console.log(final);
+                vs.forEach(function(element, index, array){
+                   elv = element['vr'];
+                    totalv = final[elv].length;
+                   for(i = 0; i < totalv; i++)
+                    {
+                        //console.log(final[elv][i]);
+                        var elva = "<td>"+final[elv][i].toFixed(2)+"</td>";
+                        console.log(elva);
+                        $("#l"+i).append(elva);  
+                    } 
+                })
+
+                for(i = 1; i <= qtdR; i++)
+                {
+                    totalr = final['fx'+i].length;
+                    console.log(final['fx'+i][0]);
+                    for(j = 0; j < totalr; j++)
+                    {
+                        var elrt = "<td>"+final['fx'+i][j].toFixed(2)+"</td>";
+                        $("#l"+j).append(elrt);
+                    }
+                }
+
+                for(i = 0; i < final.b.length; i++)
+                {
+                    var elb = "<td>"+final.b[i].toFixed(2)+"</td>";
+                    $("#l"+i).append(elb);  
+                }
+
+                console.log(solucao.solucaoFinal);
+                
+                for(i = 0; i < solucao.solucaoFinal.length; i++)
+                {
+                    if(solucao.otimaFinal)
+                        var elso = "<h4><span class='label label-success'>"+solucao.solucaoFinal[i].v+"="+final.b[solucao.solucaoFinal[i].l].toFixed(2)+"</span></h4>";
+                    else
+                        var elso = "<h4><span class='label label-warning'>"+solucao.solucaoFinal[i].v+"="+final.b[solucao.solucaoFinal[i].l].toFixed(2)+"</span></h4>";
+
+                    $(elso).insertAfter("#ts");
+                }   
+            }
         });
 
     }); 
+
+    $("#btnNewProblem").click(function(){
+        location.reload();
+    })
 
 });
 
 function alteraRtv(r)
 {
-    console.log(1);
     $("#rap"+r).val($("#r"+r).val());
+}
+
+function resultSave()
+{
+    $("#btnResultSave").hide();
+    $("#btnNewProblem").hide();
+    window.print();
 }

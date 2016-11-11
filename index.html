@@ -113,6 +113,12 @@
 						<button type="button" id="btnDelRt" class="btn btn-default btn-sm">
 							<span class="glyphicon glyphicon-minus"  aria-hidden="true"></span>
 						</button>
+
+						<div class="checkbox">
+						    <label>
+						      <input type="checkbox" id="showAllProcess"> Mostrar todo o processo realizado (Mostrar Tabelas de Execução)
+						    </label>
+						</div>
 					</div>
 					
 					<div class="panel-footer">
@@ -121,6 +127,26 @@
 						</button>
 						<button type="button" id="btnResultPanel" class="btn btn-default btn-sm">
 						  Resolver
+						</button>
+					</div>
+				</div>
+
+				<div class="panel panel-success" id="result">
+					<div class="panel-heading">
+						<h3 class="panel-title">SimplePlan - Simplex</h3>
+					</div>
+					<div class="panel-body" id="thirdy-body">
+						
+					</div>
+					
+					
+
+					<div class="panel-footer">
+						<button type="button" id="btnResultSave" onclick="resultSave()" class="btn btn-primary btn-sm">
+								Imprimir Resultado
+						</button>
+						<button type="button" id="btnNewProblem" class="btn btn-default btn-sm">
+							Novo Problema
 						</button>
 					</div>
 				</div>	

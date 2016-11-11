@@ -82,23 +82,34 @@ class Problem
 			$outputLine = $this->getOutputLine($lineInputVariable);
 			$elementP = $this->tabela[$lineInputVariable][$outputLine];
 			$newLineP = $this->newLineP($outputLine, $elementP);
+			
 			$this->parciais[$this->nt]["tabela"] = $this->tabela;
-
+			$this->parciais[$this->nt]["solucao"] = $this->getSolution();
 			if($this->hasNegativeValue())
 				$this->parciais[$this->nt]["otima"] = false;			
 			else
 				$this->parciais[$this->nt]["otima"] = true;			
 
+			
 			$this->calculateNewLines($newLineP, $lineInputVariable, $outputLine);
 			$this->nt++;
 		}
 		
 		$this->parciais[$this->nt]["tabela"] = $this->tabela;
-
+		$this->parciais[$this->nt]["solucao"] = $this->getSolution();
 		if($this->hasNegativeValue())
+		{
 			$this->parciais[$this->nt]["otima"] = false;			
+			$this->parciais["otimaFinal"] = false;			
+		}
 		else
-			$this->parciais[$this->nt]["otima"] = true;			
+		{
+			$this->parciais["otimaFinal"] = true;			
+		}
+
+		$this->parciais["solucaoFinal"] = $this->getSolution();
+		$this->parciais["final"] = $this->tabela;
+		$this->parciais["qtdFinal"] = $this->nt;
 
 		echo json_encode($this->parciais);
 	}
@@ -156,7 +167,7 @@ class Problem
 				$m = $a;
 			}
 		}
-		
+
 		return $m["c"];
 	}
 
@@ -246,6 +257,57 @@ class Problem
 				$this->tabela[$iv][$outputLine] = $nlp[$iv];
 			}
 		$this->tabela['b'][$outputLine] = $nlp['b'];
+	}
+
+	public function getSolution()
+	{
+		
+		$vs = array();
+		for($i = 1; $i <= $this->nvariaveis; $i++)
+		{
+			$qtd0 = 0;
+			$qtd1 = 0;	
+			$iv = $this->variaveis[$i]['vr'];
+			$qtc = count($this->tabela[$iv])-1;
+			$l = 0;
+			for($j = 1; $j <= $qtc; $j++)
+			{
+				if($this->tabela[$iv][$j] == 0)
+					$qtd0++;
+				else if($this->tabela[$iv][$j] == 1)
+				{
+					$qtd1++;
+					$l = $j;
+				}
+			}
+
+			if($qtd1 == 1 && $qtd0 == ($qtc-1))
+				array_push($vs, array("l"=>$l,"v"=>$iv));
+		}
+
+		for($i = 1; $i <= $this->nrestricoes; $i++)
+		{
+			$qtd0 = 0;
+			$qtd1 = 0;	
+			$iv = 'fx'.$i;
+			$qtc = count($this->tabela[$iv])-1;
+			$l = 0;
+			for($j = 1; $j <= $qtc; $j++)
+			{
+				if($this->tabela[$iv][$j] == 0)
+					$qtd0++;
+				else if($this->tabela[$iv][$j] == 1)
+				{
+					$qtd1++;
+					$l = $j;
+				}
+			}
+			
+			if($qtd1 == 1 && $qtd0 == ($qtc-1))
+				array_push($vs, array("l"=>$l,"v"=>$iv));
+		}
+
+		return $vs;
 	}
 
 	public function getResult()
