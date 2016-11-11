@@ -156,19 +156,33 @@ $(function() {
         console.log(vs[1]['vr']);
 
         var restricoes = new Array();
+        var b = new Array();
         var linhas = qtdR + 1;
         var colunas = qtdR + qtdV+2;
 
         for(i = 1; i <= qtdR; i++)
         {
-            restricoes[i] = new Array();
+            var vRestricoes = new Array();
+
             for(j = 1; j <= qtdV; j++)
             {
-                restricoes[i][j] = $("#vrt"+i+"-"+j+"").val();
+                vRestricoes[j] = $("#vrt"+i+"-"+j+"").val();
+                console.log($("#vrt"+i+"-"+j+"").val());
             }
+            b[i] = $("#rap"+i).val();
+            restricoes[i] = vRestricoes; 
         }
-
+        console.log(vs);
         console.log(restricoes);
+        console.log(b);
+
+        $.ajax({                                      
+            url: 'solution.php',       
+            type: "POST",
+            data: { lat: b } 
+        }).done(function( msg ) {
+            console.log(msg);
+        });
 
     }); 
 
