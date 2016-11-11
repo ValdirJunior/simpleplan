@@ -2,7 +2,7 @@
 
 Link da aplicação online: http://simpleplan.esy.es/ 
 
-Projeto: <strong>Elaboração e implementação de um software para solução de problemas  Programação Linear (Simplex)</strong>
+Projeto: <strong>Elaboração e implementação de um software para solução de problemas de Programação Linear (Simplex)</strong>
 
 Bacharelado em Ciência da Computação / 6º Semestre / UNIVEM </br>
 Disciplina de Pesquisa Operacional</br>
@@ -36,8 +36,8 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
 <p align="justify">Pensando na usabilidade do produto e na experiência do usuário com a aplicação, foram definidos como objetivos alguns valores considerados relevantes para o projeto, seguem:</p>
 <ul>
 <li><strong>Dinamismo:</strong> Utilização de parâmetros dinâmicos para que a solução atenda aos problemas de programação linear do cliente.</li>
-<li><strong>Praticidade:</strong >Elaboração de um software que seja rápido e cômodo para favorecer a experiência do user. </li>
-<li><strong>Acessibilidade:</strong> Aplicação de fácil acesso, sem necessidade de instalação de programas execíficos para ser executado.</li>
+<li><strong>Praticidade:</strong > Elaboração de um software que seja rápido e cômodo para favorecer a experiência do usuário. </li>
+<li><strong>Acessibilidade:</strong> Aplicação de fácil acesso, sem necessidade de instalação de programas específicos para ser executado.</li>
 <li><strong>Didático:</strong> Estruturação de técnicas simples e intuitivas para que o usuário possa facilmente identificar as funções de cada elemento da interface. </li>
 </ul>
 
@@ -48,7 +48,7 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
 <li><strong>Definição da função objetivo:</strong> Formulário para estabelecer a função objetivo.</li>
 <li><strong>Definição das restrições:</strong> Disponibilização de campos para a inserção de quantas restrições o problema precisar.</li>
 <li><strong>Escolha do tipo de cálculo:</strong> Opção para selecionar o tipo entre as alternativas de maximizar ou minimizar o resultado da solução.</li>
-<li><strong>Download:</strong> Opção para que o usuário possar realizar o download dos resultados obtidos pela execução do Simplex.</li>
+<li><strong>Impressão e download:</strong> Opção para que o usuário possa imprimir ou baixar os resultados obtidos pela execução do Simplex.</li>
 <li><strong>Passo-a-passo:</strong> Função que permite a exibição do relatório da solução indicando os detalhes de cada passo executado pelo programa.</li>
 <li><strong>Número de iterações:</strong> Alternativa para escolher a quantidade de iterações que o sistema deverá executar.</li>
 <li><strong>Solução:</strong> Produzir resultados a partir da execução do algoritmo de Simplex. </li>
@@ -88,7 +88,7 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
       </tr>
   <tr>
     <td></td>
-    <td>Inicio do projeto.</td>   
+    <td>Início do projeto.</td>   
   </tr>
   <tr>
     <td></td>
@@ -100,7 +100,7 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
   </tr>
   <tr>
     <td></td>
-    <td>Definição das ferramentas pára a implementação.</td>   
+    <td>Definição das ferramentas para a implementação.</td>   
   </tr>
   <tr>
     <td></td>
@@ -112,7 +112,7 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
   </tr>
   <tr>
     <td>06/11/2016</td>
-    <td>Validaçãp dos testes da primeira versão.</td>   
+    <td>Validação dos testes da primeira versão.</td>   
   </tr>
   <tr>
     <td>07/11/2016</td>
