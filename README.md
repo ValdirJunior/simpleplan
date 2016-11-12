@@ -51,7 +51,7 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
 <li><strong>Escolha da exibição do resultado: </strong> Opção para escolher visualizar apenas o resultado final ou cada passo-a-passo da solução.</li>
 <li><strong>Passo-a-passo:</strong> Função que permite a exibição do relatório da solução indicando os detalhes de cada passo executado pelo programa.</li>
 <li><strong>Impressão e download:</strong> Opção para que o usuário possa imprimir ou baixar os resultados obtidos pela execução do Simplex.</li>
-<li><strong>Interpretação econômica:</strong> Realizar a compreensão dos resultados em relação à economia do cliente.</li>
+<li><strong>Interpretação econômica do resultado:</strong> Apresentar apenas a solução final do problema, sem maiores detalhes.</li>
 </ol>
 
 #Ferramentas
@@ -77,11 +77,11 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
 
 
 #Problemas e Limitações
+<p align="justify">No projeto de implementação do Simplex nesse projeto, algumas limitações de desenvolvimento foram estipuladas: </p>
 <ul>
-<li>Sem número fixo de variáveis de decisão;</li>
-<p align="justify">Limite de 50 iterações para a execução da solução.</p>
-
-
+<li>Limite de 50 iterações para a execução da solução.</li>
+<li>As restrições devem ser menores ou iguais a 0. </li>
+</ul>
 
 #Datas Importantes 
 
