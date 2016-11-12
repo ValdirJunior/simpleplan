@@ -5,7 +5,6 @@ require_once 'Problem.php';
 //echo "<pre>";
 $funcao = $_POST['funcao'];
 $variaveis = $_POST['variaveis'];
-$objetivo = $_POST['objetivo'];
 $restricoes = $_POST['restricoes'];
 $b = $_POST['b'];
 $iteracoes = $_POST['iteracoes'];
@@ -16,7 +15,7 @@ $iteracoes = $_POST['iteracoes'];
 // echo("objetivo -> ".$objetivo);echo "<br>";
 // echo("restricoes -> ".$restricoes);echo "<br>";
 
-$problem = new Problem($variaveis, $restricoes, $funcao, $objetivo, $b, $iteracoes);
+$problem = new Problem($variaveis, $restricoes, $funcao, $b, $iteracoes);
 $problem->resolve();
 //echo json_encode($problem->getResult());
 

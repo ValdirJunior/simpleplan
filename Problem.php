@@ -7,7 +7,6 @@ class Problem
 
 	public $funcao;
 	public $variaveis;
-	public $objetivo;
 	public $restricoes;
 	public $b;
 	public $iteracoes;
@@ -16,12 +15,11 @@ class Problem
 	public $parciais = array();
 	public $nt = 0;
 
-	function __construct($variaveis, $restricoes, $funcao, $objetivo, $b, $iteracoes)
+	function __construct($variaveis, $restricoes, $funcao, $b, $iteracoes)
 	{
 		$this->variaveis = $variaveis;
 		$this->restricoes = $restricoes;
 		$this->funcao = $funcao;
-		$this->objetivo = $objetivo;
 		$this->b = $b;
 		$this->iteracoes = $iteracoes;
 
@@ -182,7 +180,11 @@ class Problem
 		$v = array();
 		for($i = 1; $i <= $this->nrestricoes; $i++)
 		{
-			$l = array("v"=>$this->b[$i]/$input[$i], "l"=>$i);
+			if($input[$i] == 0)
+				$l = array("v"=>$this->b[$i], "l"=>$i);
+			else
+				$l = array("v"=>$this->b[$i]/$input[$i], "l"=>$i);
+
 			array_push($v, $l);
 		}
 
@@ -204,19 +206,34 @@ class Problem
 	public function newLineP($outputLine, $elementP)
 	{
 		$nlp = array();
-		$nlp['z'] = $this->tabela['z'][$outputLine];
+
+		if($elementP == 0)
+			$nlp['z'] = $elementP;
+		else
+			$nlp['z'] = $this->tabela['z'][$outputLine]/$elementP;
+
 		for($i = 1; $i <= $this->nvariaveis; $i++)
 		{
 			$iv = $this->variaveis[$i]['vr'];
-			$nlp[$iv] = $this->tabela[$iv][$outputLine]/$elementP;
+			if($elementP == 0)
+				$nlp[$iv] = $elementP;
+			else
+				$nlp[$iv] = $this->tabela[$iv][$outputLine]/$elementP;
 		}
 		//folgas
 		for($i = 1; $i <= $this->nrestricoes; $i++)
 		{
 			$iv = 'fx'.$i;
-			$nlp[$iv] = $this->tabela[$iv][$outputLine]/$elementP;
+			if($elementP == 0)
+				$nlp[$iv] = $elementP;
+			else
+				$nlp[$iv] = $this->tabela[$iv][$outputLine]/$elementP;
 		}
-		$nlp['b'] =  $this->tabela['b'][$outputLine]/$elementP;
+		
+		if($elementP == 0)
+			$nlp['b'] = $elementP;
+		else
+			$nlp['b'] = $this->tabela['b'][$outputLine]/$elementP;
 
 		return $nlp;
 	}

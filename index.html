@@ -122,10 +122,23 @@
 							</div>
 						</form>
 
-						<div class="checkbox">
-						    <label>
-						      <input type="checkbox" id="showAllProcess"> Mostrar todo o processo realizado (Tabelas de Execução)
-						    </label>
+						<div class="radio">
+						  <label>
+						    <input type="radio" name="optionsShow" id="showAllProcess" value="showAll" checked>
+						    Mostrar todo o processo realizado (Tabelas de Execução)
+						  </label>
+						</div>
+						<div class="radio">
+						  <label>
+						    <input type="radio" name="optionsShow" id="showEachProcess" value="showEach">
+						    Controlar passo-a-passo o processo de solução
+						  </label>
+						</div>
+						<div class="radio">
+						  <label>
+						    <input type="radio" name="optionsShow" id="showResult" value="showResult">
+						    Mostrar apenas o resultado final
+						  </label>
 						</div>
 					</div>
 					
@@ -144,9 +157,10 @@
 						<h3 class="panel-title">SimplePlan - Simplex</h3>
 					</div>
 					<div class="panel-body" id="thirdy-body">
-						
+						<div id="finalResult">
+							
+						</div>
 					</div>
-					
 					
 
 					<div class="panel-footer">
