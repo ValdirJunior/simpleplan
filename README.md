@@ -155,6 +155,12 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
     <td>10/10/2016</td>
     <td>Conhecimento do cenário e requisitos.</td>   
   </tr>
+  
+  <tr>
+    <td>10/10/2016</td>
+    <td>Entrega da prévia do orçamento e prazos.</td>   
+  </tr>
+  
   <tr>
     <td>19/10/2016</td>
     <td>Definição das funcionalidades.</td>   
@@ -171,6 +177,12 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
     <td>31/10/2016</td>
     <td>Inicio do desenvolvimento.</td>   
   </tr>
+  
+  <tr>
+    <td>05/11/2016</td>
+    <td>Entrega da versão atualizada do orçamento.</td>   
+  </tr>
+  
   <tr>
     <td>06/11/2016</td>
     <td>Validação dos testes da primeira versão.</td>   
@@ -213,5 +225,6 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
   </tr>
 </table>
 
+#Conclusão
 
-
+<p align="justify">Durante o decorrer do processo de desenvolvimento do SimplePlan, a equipe enfrentou alguns problemas relacionados aos prazos e entregas dos MVPs definidos em projeto, porém, a entrega final combinafda foi mantida, entregando o software funcionando seguindo as solicitações do cliente, que especificou uma aplicação dinâmica e simples. A partir da entrega 11/11/2016, o programa tende a sofrer algumas atualizações referentes à melhorias no produto disponibilizado.</p>
