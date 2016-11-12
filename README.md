@@ -101,21 +101,27 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
 
 </li>
 <li><strong>Clicar no botão para prosseguir com o próximo passo;</strong></li>
-<li><strong>Editar operações na função objetivo gerada a partir das variáveis indicadas no passo anterior;</strong></li>
-<li><strong>Inserir as restrições do problema linear;</strong> 
-  <p>Exemplo:</p>
+<li><strong>Editar operações na função objetivo gerada a partir das variáveis indicadas no passo anterior;</strong>
+<p>Exemplo de funções objetivas e maximizar e minimizar:</p>
   <table>
   <tr>
-    <th>Variável</th>
-    <th>Valor</th>
-     </tr>
-  <tr>
-  <td>X1</td>
-  <td>11</td>
+  <td> <strong>Max Z</strong> = 11X1 + 12X2 <= 10000</td>
   </tr>
  <tr>
-  <td>X2</td>
-  <td>12</td>
+  <td><strong>Min Z</strong> = 2X1 - 3X2 <= 30000</td>
+  </tr>
+</table>
+
+
+</li>
+<li><strong>Inserir as restrições do problema linear;</strong> 
+  <p>Exemplos:</p>
+  <table>
+  <tr>
+  <td>1X1 + 4X2 <= 10000</td>
+  </tr>
+ <tr>
+  <td>5X1 + 2X2 <= 30000</td>
   </tr>
 </table>
 
