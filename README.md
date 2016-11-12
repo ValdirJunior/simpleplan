@@ -75,6 +75,57 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
 
 </table>
 
+#Manual de utilização do SimplePlan
+
+<p>Seguem abaixo informações explicativas referente ao uso do SimplePlan</p>
+
+<ol>
+<li><strong>Acessar o link da aplicação:</strong> http://simpleplan.esy.es/</li>
+<li><strong>Escolher qual será o objetivo do cálculo a ser realizado:</strong> Maximização ou Minimização;</li>
+<li><strong>Adicionar a quantidade de variáveis que integram o problema de programação linear;</strong> 
+  <p>Exemplo:</p>
+  <table>
+  <tr>
+    <th>Variável</th>
+    <th>Valor</th>
+     </tr>
+  <tr>
+  <td>X1</td>
+  <td>11</td>
+  </tr>
+ <tr>
+  <td>X2</td>
+  <td>12</td>
+  </tr>
+</table>
+
+</li>
+<li><strong>Clicar no botão para prosseguir com o próximo passo;</strong></li>
+<li><strong>Editar operações na função objetivo gerada a partir das variáveis indicadas no passo anterior;</strong></li>
+<li><strong>Inserir as restrições do problema linear;</strong> 
+  <p>Exemplo:</p>
+  <table>
+  <tr>
+    <th>Variável</th>
+    <th>Valor</th>
+     </tr>
+  <tr>
+  <td>X1</td>
+  <td>11</td>
+  </tr>
+ <tr>
+  <td>X2</td>
+  <td>12</td>
+  </tr>
+</table>
+
+</li>
+
+<li><strong>Escolha como deseja visualizar o relatório da solução;</strong></li>
+
+<li><strong>Clique em "Resolver" para produzir os resultados.</strong></li>
+</ol>
+<p>Obs: É possível avançar e retornar as etapas de inserção dos dados.</p>
 
 #Problemas e Limitações
 <p align="justify">No projeto de implementação do Simplex nesse projeto, algumas limitações de desenvolvimento foram estipuladas: </p>
