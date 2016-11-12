@@ -77,7 +77,7 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
 
 #Manual de utilização do SimplePlan
 
-<p>Seguem abaixo informações explicativas referente ao uso do SimplePlan</p>
+<p>Seguem abaixo informações explicativas referente ao uso do SimplePlan:</p>
 
 <ol>
 <li><strong>Acessar o link da aplicação:</strong> http://simpleplan.esy.es/</li>
@@ -148,27 +148,27 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
     <th>Evento</th>
       </tr>
   <tr>
-    <td></td>
+    <td>05/10/2016</td>
     <td>Início do projeto.</td>   
   </tr>
   <tr>
-    <td></td>
+    <td>10/10/2016</td>
     <td>Conhecimento do cenário e requisitos.</td>   
   </tr>
   <tr>
-    <td></td>
+    <td>19/10/2016</td>
     <td>Definição das funcionalidades.</td>   
   </tr>
   <tr>
-    <td></td>
+    <td>24/10/2016</td>
     <td>Definição das ferramentas para a implementação.</td>   
   </tr>
   <tr>
-    <td></td>
+    <td>28/10/2016</td>
     <td>Elaboração do layout.</td>   
   </tr>
   <tr>
-    <td></td>
+    <td>31/10/2016</td>
     <td>Inicio do desenvolvimento.</td>   
   </tr>
   <tr>
@@ -213,6 +213,5 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
   </tr>
 </table>
 
-#Conclusão
 
 
