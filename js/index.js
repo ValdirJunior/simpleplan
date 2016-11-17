@@ -215,7 +215,7 @@ $(function() {
                 {
                     console.log(solucao[ik].tabela);
                     //TABLE HEAD
-                    var el = "<div class='table-responsive' id='ts"+ik+"'><table class='table table-hover'><thead><tr id='tbHead"+ik+"'><th>Z</th></tr></thead><tbody id='tbBody"+ik+"'></tbody></table><div>";
+                    var el = "<div class='col-panel'><div class='table-responsive' id='ts"+ik+"'><table class='table table-hover'><thead><tr id='tbHead"+ik+"'><th>Z</th></tr></thead><tbody id='tbBody"+ik+"'></tbody></table><div>";
                     $("#thirdy-body").append(el);
 
                     vs.forEach(function(element, index, array){
@@ -286,6 +286,7 @@ $(function() {
 
                         $(elso).insertAfter("#ts"+ik+"");
                     }
+                    $("#ts"+ik+"").append('</div>');
                 }
             }
             else if($("#showEachProcess").is(":checked"))
@@ -295,7 +296,7 @@ $(function() {
                 {
                     console.log(solucao[ik].tabela);
                     //TABLE HEAD
-                    var el = "<div class='table-responsive' id='ts"+ik+"'><table class='table table-hover'><thead><tr id='tbHead"+ik+"'><th>Z</th></tr></thead><tbody id='tbBody"+ik+"'></tbody></table><div>";
+                    var el = "<div class='col-panel'><div class='table-responsive' id='ts"+ik+"'><table class='table table-hover'><thead><tr id='tbHead"+ik+"'><th>Z</th></tr></thead><tbody id='tbBody"+ik+"'></tbody></table><div>";
                     $("#thirdy-body").append(el);
 
                     vs.forEach(function(element, index, array){
@@ -367,7 +368,7 @@ $(function() {
                         $("#ts"+ik+"").append(elso);
 
                     }
-                    var el = "<button type='button' id='prevState' class='btn btn-default btn-sm' onclick='showPrev("+ik+")'><span class='glyphicon glyphicon glyphicon-chevron-left' aria-hidden='true'></span></button><button type='button' id='nextState' class='btn btn-default btn-sm' onclick='showNext("+ik+","+np+")'><span class='glyphicon glyphicon glyphicon-chevron-right' aria-hidden='true'></button>";
+                    var el = "<center><button type='button' id='prevState' class='btn btn-default btn-sm' onclick='showPrev("+ik+")' data-toggle='tooltip' title='Passo anterior'><span class='glyphicon glyphicon glyphicon-chevron-left' aria-hidden='true'></span></button><button type='button' id='nextState' class='btn btn-default btn-sm' onclick='showNext("+ik+","+np+")' data-toggle='tooltip' title='Próximo passo'><span class='glyphicon glyphicon glyphicon-chevron-right' aria-hidden='true'></button></center>";
                     $("#ts"+ik+"").append(el);
 
                     if(ik > 0)
@@ -378,7 +379,7 @@ $(function() {
             else
             {
                 //TABLE HEAD
-                 var el = "<div class='table-responsive' id='ts'><table class='table table-hover'><thead><tr id='tbHead'><th>Z</th></tr></thead><tbody id='tbBody'></tbody></table><div>";
+                 var el = "<div class='col-panel'><div class='table-responsive' id='ts'><table class='table table-hover'><thead><tr id='tbHead'><th>Z</th></tr></thead><tbody id='tbBody'></tbody></table><div>";
                  $("#thirdy-body").append(el);
 
                  vs.forEach(function(element, index, array){
@@ -450,6 +451,7 @@ $(function() {
 
                     $(elso).insertAfter("#ts");
                 }
+                $("#ts").append("</div>");
             }
         });
 

@@ -1,0 +1,26 @@
+*{
+	color: #000;
+	font-weight: 200;
+}
+
+.bkg-img{
+	position: fixed;
+    left: 0;
+    top: 0;
+	opacity: 0.2;
+	width: 100%;
+	min-height: 100%;
+	background-repeat: repeat-y;
+}
+
+.title{
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.panel{
+	background-color: transparent !important;
+}
+
+.col-panel{
+	margin: 4% 0;	
+}

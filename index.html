@@ -4,19 +4,19 @@
 	<meta charset="UTF-8">
 	<title>SimplePlan</title>
 	<link rel="icon" type="image/png" href="./img/icon.ico" />
+	<link rel="stylesheet" href="./css/index.css"/>
 	<link rel="stylesheet" href="./bts/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="./bts/css/bootstrap-theme.min.css"/>
 </head>
 <body>
 	<div class="container-fluid">
+		<img class="img-responsive bkg-img" src="http://www.jornalciencia.com/wp-content/uploads/2016/05/matematica-1175x500.jpg">
+		<h1 class="title text-center text-uppercase">SimplePlan - Simplex</h1>
 		<div class="row">
 			<div class="col-md-12 col-xs-12">
-				<div class="panel panel-success" id="first">
-					<div class="panel-heading">
-						<h3 class="panel-title">SimplePlan - Simplex</h3>
-					</div>
-					<div id="bodyVr" class="panel-body">
-						<h3>Qual Problema Deseja Resolver</h3>
+				<div class="first-panel panel-body" id="first">
+					<div class="col-panel">
+						<h3>Tipo de problema</h3>
 						<div class="radio">
 						  <label>
 						    <input type="radio" name="rdFunction" id="rdMaxOpt" value="max" checked>
@@ -30,8 +30,10 @@
 						    Minimizar
 						  </label>
 						</div>
+					</div>
 						
-						<h3>Quais as Variáveis de Decisão deste Problema?</h3>
+					<div class="col-panel">
+						<h3>Variáveis de Decisão</h3>
 						<div class="input-group" id="vrs-first">
 							<div id="allVr">
 								<form class="form-inline vrd" id="fvr1">
@@ -60,35 +62,35 @@
 								</form>
 							</div>
 							<button type="button" id="btnAddVr" class="btn btn-default btn-sm">
-								<span class="glyphicon glyphicon-plus"  aria-hidden="true"></span>
+								<span class="glyphicon glyphicon-plus"  aria-hidden="true" data-toggle="tooltip" title="Adicionar"></span>
 							</button>
 
 							<button type="button" id="btnDelVr" class="btn btn-default btn-sm">
-								<span class="glyphicon glyphicon-minus"  aria-hidden="true"></span>
+								<span class="glyphicon glyphicon-minus"  aria-hidden="true" data-toggle="tooltip" title="Remover"></span>
 							</button>	
 						</div>
 					</div>
 					
-					<div class="panel-footer">
-						<button type="button" id="btnNextPanel" class="btn btn-default btn-sm">
-							<span class="glyphicon glyphicon glyphicon-chevron-right"  aria-hidden="true"></span>
-						</button>
-					</div>					
-				</div>
-
-				<div class="panel panel-success" id="second">
-					<div class="panel-heading">
-						<h3 class="panel-title">SimplePlan - Simplex</h3>
+					<div class="col-panel">
+						<center>
+							<button type="button" id="btnNextPanel" class="btn btn-default btn-sm">
+								<span class="glyphicon glyphicon glyphicon-chevron-right"  aria-hidden="true"> Próximo</span>
+							</button>
+						</center>
 					</div>
-					<div class="panel-body" id="second-body">
-						<h3>Elabora a função objetivo</h3>
+				</div>			
+
+				<div class="panel-body" id="second">
+					<div class="col-panel">
+						<h3>Função objetivo</h3>
 						<div class="input-group" id="vrs-second">
 							<form class="form-inline" id="svr1">
-								
 							</form>
 						</div>
+					</div>
 
-						<h3>Existem Restrições?</h3>
+					<div class="col-panel">
+						<h3>Restrições</h3>
 						<div class="allRt">
 							
 						<!-- 
@@ -107,21 +109,26 @@
 					  	</div> -->
 					  	</div>
 				  		<button type="button" id="btnAddRt" class="btn btn-default btn-sm">
-							<span class="glyphicon glyphicon-plus"  aria-hidden="true"></span>
+							<span class="glyphicon glyphicon-plus"  aria-hidden="true" data-toggle="tooltip" title="Adicionar"></span>
 						</button>
 
 						<button type="button" id="btnDelRt" class="btn btn-default btn-sm">
-							<span class="glyphicon glyphicon-minus"  aria-hidden="true"></span>
+							<span class="glyphicon glyphicon-minus"  aria-hidden="true" data-toggle="tooltip" title="Remover"></span>
 						</button>
+				  	</div>
 
-						
-						<h3>Número máximo de vezes que o programa pode executar:</h3>
+					<div class="col-panel">
+						<h3>Limite de execução</h3>
+						<p>Número máximo de vezes que o programa pode executar</p>
 						<form class="form-inline">
 							<div class="form-group">
 								<input type="number" id="nOp" class="form-control" placeholder="Iterações" aria-describedby="basic-addon1">
 							</div>
 						</form>
+					</div>
 
+					<div class="col-panel">
+						<h3>Resultado</h3>
 						<div class="radio">
 						  <label>
 						    <input type="radio" name="optionsShow" id="showAllProcess" value="showAll" checked>
@@ -141,35 +148,37 @@
 						  </label>
 						</div>
 					</div>
+
 					
-					<div class="panel-footer">
-						<button type="button" id="btnPrevPanel" class="btn btn-default btn-sm">
-						  <span class="glyphicon glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-						</button>
-						<button type="button" id="btnResultPanel" class="btn btn-default btn-sm">
-						  Resolver
-						</button>
+					<div class="col-panel">
+						<center>
+							<button type="button" id="btnPrevPanel" class="btn btn-default btn-sm">
+							  <span class="glyphicon glyphicon glyphicon-chevron-left" aria-hidden="true"> Anterior</span>
+							</button>
+							<button type="button" id="btnResultPanel" class="btn btn-default btn-sm">
+							  <span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"> Resolver</span>
+							</button>
+						</center>
 					</div>
 				</div>
 
-				<div class="panel panel-success" id="result">
-					<div class="panel-heading">
-						<h3 class="panel-title">SimplePlan - Simplex</h3>
-					</div>
-					<div class="panel-body" id="thirdy-body">
-						<div id="finalResult">
+				<div id="result">
+					<div id="thirdy-body">
+						<div class="col-panel" id="finalResult">
 							
 						</div>
 					</div>
 					
 
-					<div class="panel-footer">
-						<button type="button" id="btnResultSave" onclick="resultSave()" class="btn btn-primary btn-sm">
-								Imprimir Resultado
-						</button>
-						<button type="button" id="btnNewProblem" class="btn btn-default btn-sm">
-							Novo Problema
-						</button>
+					<div class="col-panel">
+						<center>
+							<button type="button" id="btnResultSave" onclick="resultSave()" class="btn btn-primary btn-sm">
+								<span class="glyphicon glyphicon glyphicon-download-alt" aria-hidden="true"> Imprimir</span>
+							</button>
+							<button type="button" id="btnNewProblem" class="btn btn-default btn-sm">
+								<span class="glyphicon glyphicon glyphicon-repeat" aria-hidden="true"> Novo</span>
+							</button>
+						</center>
 					</div>
 				</div>	
 			</div>
