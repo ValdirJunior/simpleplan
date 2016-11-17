@@ -14,7 +14,7 @@ Marina dos Santos Beretta.          RA: 54272-5<br/>
 Valdir A. P. Junior.                RA: 53582-6<br/>
 
 #Introdução
-<p align="justify">Este domumento fornece uma visão geral do aplicativo <strong>SimplePlan</strong> que foi projetado a partir da utilização do método <strong>Simplex</strong>, a fim de resolver problemas de <strong>programação linear</strong> com objetivo de maximizar e minimizar.
+<p align="justify">Este documento fornece uma visão geral do aplicativo <strong>SimplePlan</strong> que foi projetado a partir da utilização do método <strong>Simplex</strong>, a fim de resolver problemas de <strong>programação linear</strong> com objetivo de maximizar e minimizar.
 O Simplex é um dos algoritmos mais importantes descobertos neste século, o mesmo permite encontrar a solução ótima de um problema de Programação Linear de forma eficiente, onde são estabelecidas variáveis e restrições para as variáveis com intuito de testar as possibilidades de otimização dos resultados.
 A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viable Product)</strong> que está diretamente conectada aos conceitos de Lean Starup e consiste num conjunto de testes sobre a viabilidade do negócio, onde várias versões do produto são liberadas aos stakeholders para se obter um feedback que agregue no desenvolvimento, ajuste e melhorias do projeto.</p>
 
