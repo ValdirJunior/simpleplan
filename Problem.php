@@ -121,7 +121,6 @@ class Problem
 	public function hasNegativeValue()
 	{
 		$v = array();
-		
 		//variaveis
 		for($i = 1; $i <= $this->nvariaveis; $i++)
 		{
@@ -135,10 +134,22 @@ class Problem
 			array_push($v, $this->tabela[$iv][0]);
 		}
 
-		foreach ($v as $a) {
-			if($a < 0)
-				return true;
+		if($this->funcao == 'max')
+		{
+			foreach ($v as $a) {
+				if($a < 0)
+					return true;
+			}
 		}
+		else
+		{
+			foreach ($v as $a) {
+				if($a > 0)
+					return true;
+			}
+		}	
+
+
 
 		return false;
 	}
@@ -163,14 +174,27 @@ class Problem
 		
 		$m["v"] = 0;
 
-		foreach($v as $a)
-		{		
-			if($a["v"] < $m["v"])
-			{
-				$m = $a;
+		if($this->funcao == 'max')
+		{
+			foreach($v as $a)
+			{		
+				if($a["v"] < $m["v"])
+				{
+					$m = $a;
+				}
 			}
 		}
-
+		else
+		{
+			foreach($v as $a)
+			{		
+				if($a["v"] > $m["v"])
+				{
+					$m = $a;
+				}
+			}
+		}
+		echo json_encode($m);
 		return $m["c"];
 	}
 
@@ -178,17 +202,22 @@ class Problem
 	{
 		$input = $this->tabela[$inputV];
 		$v = array();
+		
+		// echo json_encode($input);
+		// echo json_encode($this->tabela['b']);
+
+		//restricoes
 		for($i = 1; $i <= $this->nrestricoes; $i++)
 		{
-			if($input[$i] == 0)
-				$l = array("v"=>$this->b[$i], "l"=>$i);
-			else
-				$l = array("v"=>$this->b[$i]/$input[$i], "l"=>$i);
-
-			array_push($v, $l);
+			if($input[$i] != 0)
+			{
+				$l = array("v"=>$this->tabela['b'][$i]/$input[$i], "l"=>$i);
+				array_push($v, $l);
+			}
 		}
 
 		$m["v"] = 0;
+		//echo json_encode($v);
 
 		foreach ($v as $a) {
 			if($a["v"] > $m["v"])
@@ -199,7 +228,7 @@ class Problem
 			if($a["v"] < $m["v"] && $a["v"] > 0)
 				$m = $a;
 		}
-
+		//echo json_encode($m);
 		return $m["l"];
 	}
 
@@ -207,33 +236,35 @@ class Problem
 	{
 		$nlp = array();
 
-		if($elementP == 0)
-			$nlp['z'] = $elementP;
-		else
+		// if($elementP == 0)
+		// 	$nlp['z'] = $elementP;
+		// else
 			$nlp['z'] = $this->tabela['z'][$outputLine]/$elementP;
 
 		for($i = 1; $i <= $this->nvariaveis; $i++)
 		{
 			$iv = $this->variaveis[$i]['vr'];
-			if($elementP == 0)
-				$nlp[$iv] = $elementP;
-			else
+			// if($elementP == 0)
+			// 	$nlp[$iv] = $elementP;
+			// else
 				$nlp[$iv] = $this->tabela[$iv][$outputLine]/$elementP;
 		}
 		//folgas
 		for($i = 1; $i <= $this->nrestricoes; $i++)
 		{
 			$iv = 'fx'.$i;
-			if($elementP == 0)
-				$nlp[$iv] = $elementP;
-			else
+			// if($elementP == 0)
+			// 	$nlp[$iv] = $elementP;
+			// else
 				$nlp[$iv] = $this->tabela[$iv][$outputLine]/$elementP;
 		}
 		
-		if($elementP == 0)
-			$nlp['b'] = $elementP;
-		else
+		// if($elementP == 0)
+		// 	$nlp['b'] = $elementP;
+		// else
 			$nlp['b'] = $this->tabela['b'][$outputLine]/$elementP;
+
+		//echo json_encode($nlp);
 
 		return $nlp;
 	}
@@ -246,7 +277,9 @@ class Problem
 			if($l != $outputLine)
 			{
 				$mult = ($this->tabela[$lineInputVariable][$l])*(-1);
-				
+
+				//echo json_encode($mult);
+
 				$this->tabela['z'][$l] = ($nlp['z']*$mult)+$this->tabela['z'][$l];
 				
 				for($i = 1; $i <= $this->nvariaveis; $i++)

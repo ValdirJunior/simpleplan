@@ -28,8 +28,8 @@ $(function() {
                 va = 0;
 
             vs[index] = {vr:vr, va:va};
-            //console.log(vs);
-            //console.log(vs[index]['vr']);
+            ////console.log(vs);
+            ////console.log(vs[index]['vr']);
 
             if(index <= qtdVTotal){
                 var el = "<div class='form-group vobj'><input type='text' id='vr"+index+"' class='form-control' value="+vs[index]['va']+vs[index]['vr']+" aria-describedby='basic-addon1' readonly></div>";
@@ -156,13 +156,14 @@ $(function() {
 
     $("#btnResultPanel").click(function(){
 
-        //console.log(vs[1]['vr']);
+        ////console.log(vs[1]['vr']);
 
         $("#result").show();
         $("#second").hide();
 
         var restricoes = new Array();
         var b = new Array();
+        var variaveis = new Array();
         var linhas = qtdR + 1;
         var colunas = qtdR + qtdV+2;
         var solucao;
@@ -175,7 +176,7 @@ $(function() {
             for(j = 1; j <= qtdV; j++)
             {
                 vRestricoes[j] = $("#vrt"+i+"-"+j+"").val();
-                //console.log($("#vrt"+i+"-"+j+"").val());
+                ////console.log($("#vrt"+i+"-"+j+"").val());
             }
             restricoes[i] = vRestricoes;
             b[i] = $("#rap"+i+"").val();
@@ -185,7 +186,17 @@ $(function() {
 
         //restricoes = JSON.stringify(restricoes);
         //variaveis = JSON.stringify(vs);
-        variaveis = vs;
+        
+        if($("#rdMinOpt").is(':checked'))
+        {
+            vs.forEach(function(element,index){
+                va = element.va*(-1)
+                variaveis.push({vr:element.vr, va:va.toString()});
+            });
+        }
+        else
+            variaveis = vs;
+
         //objetivo = JSON.stringify(objetivo);
 
         $.ajax({                                      
@@ -196,7 +207,14 @@ $(function() {
             console.log(msg);
             solucao = jQuery.parseJSON(msg);
 
-            var elf = '<h4><span class="label label-success">Resultado da função obitda: '+(solucao.final.b[0].toFixed(2))*(-1)+'</span></h4>';
+            if($("#rdMinOpt").is(':checked'))
+            {
+                var elf = '<h4><span class="label label-success">Resultado da função obitda: '+(solucao.final.b[0].toFixed(2))*(-1)+'</span></h4>';
+            }
+            else
+            {
+                var elf = '<h4><span class="label label-success">Resultado da função obitda: '+(solucao.final.b[0].toFixed(2))+'</span></h4>';
+            }
             $("#finalResult").append(elf);
             for(i = 0; i < solucao.solucaoFinal.length; i++)
             {
@@ -207,13 +225,13 @@ $(function() {
 
             if($("#showAllProcess").is(':checked'))
             {
-                console.log(solucao);
+                //console.log(solucao);
                 np = solucao.qtdFinal;
-                console.log(np);
+                //console.log(np);
 
                 for(ik = 0; ik <= np; ik++)
                 {
-                    console.log(solucao[ik].tabela);
+                    //console.log(solucao[ik].tabela);
                     //TABLE HEAD
                     var el = "<div class='col-panel'><div class='table-responsive' id='ts"+ik+"'><table class='table table-hover'><thead><tr id='tbHead"+ik+"'><th>Z</th></tr></thead><tbody id='tbBody"+ik+"'></tbody></table><div>";
                     $("#thirdy-body").append(el);
@@ -236,7 +254,7 @@ $(function() {
                     for(i = 0; i < qtdR+1; i++)
                     {
                         var ell = "<tr id='l"+ik+"-"+i+"'></tr>";
-                        console.log(ell);
+                        //console.log(ell);
                         $("#tbBody"+ik).append(ell);
                     }
 
@@ -246,15 +264,15 @@ $(function() {
                         $("#l"+ik+"-"+i+"").append(elz);  
                     }                     
 
-                    console.log(final);
+                    //console.log(final);
                     vs.forEach(function(element, index, array){
                         elv = element['vr'];
                         totalv = final[elv].length;
                         for(i = 0; i < totalv; i++)
                         {
-                            //console.log(final[elv][i]);
+                            ////console.log(final[elv][i]);
                             var elva = "<td>"+final[elv][i].toFixed(2)+"</td>";
-                            console.log(elva);
+                            //console.log(elva);
                             $("#l"+ik+"-"+i+"").append(elva);  
                         } 
                     })
@@ -262,7 +280,7 @@ $(function() {
                     for(i = 1; i <= qtdR; i++)
                     {
                         totalr = final['fx'+i].length;
-                        console.log(final['fx'+i][0]);
+                        //console.log(final['fx'+i][0]);
                         for(j = 0; j < totalr; j++)
                         {
                             var elrt = "<td>"+final['fx'+i][j].toFixed(2)+"</td>";
@@ -276,7 +294,7 @@ $(function() {
                         $("#l"+ik+"-"+i+"").append(elb);  
                     }
 
-                    console.log(solucao[ik].solucao);
+                    //console.log(solucao[ik].solucao);
                     for(i = 0; i < solucao[ik].solucao.length; i++)
                     {
                         if(solucao[ik].otima)
@@ -294,7 +312,7 @@ $(function() {
                 np = solucao.qtdFinal;
                 for(ik = 0; ik <= np; ik++)
                 {
-                    console.log(solucao[ik].tabela);
+                    //console.log(solucao[ik].tabela);
                     //TABLE HEAD
                     var el = "<div class='col-panel'><div class='table-responsive' id='ts"+ik+"'><table class='table table-hover'><thead><tr id='tbHead"+ik+"'><th>Z</th></tr></thead><tbody id='tbBody"+ik+"'></tbody></table><div>";
                     $("#thirdy-body").append(el);
@@ -317,7 +335,7 @@ $(function() {
                     for(i = 0; i < qtdR+1; i++)
                     {
                         var ell = "<tr id='l"+ik+"-"+i+"'></tr>";
-                        console.log(ell);
+                        //console.log(ell);
                         $("#tbBody"+ik).append(ell);
                     }
 
@@ -327,15 +345,15 @@ $(function() {
                         $("#l"+ik+"-"+i+"").append(elz);  
                     }                     
 
-                    console.log(final);
+                    // //console.log(final);
                     vs.forEach(function(element, index, array){
                         elv = element['vr'];
                         totalv = final[elv].length;
                         for(i = 0; i < totalv; i++)
                         {
-                            //console.log(final[elv][i]);
+                            ////console.log(final[elv][i]);
                             var elva = "<td>"+final[elv][i].toFixed(2)+"</td>";
-                            console.log(elva);
+                            // //console.log(elva);
                             $("#l"+ik+"-"+i+"").append(elva);  
                         } 
                     })
@@ -343,7 +361,7 @@ $(function() {
                     for(i = 1; i <= qtdR; i++)
                     {
                         totalr = final['fx'+i].length;
-                        console.log(final['fx'+i][0]);
+                        // //console.log(final['fx'+i][0]);
                         for(j = 0; j < totalr; j++)
                         {
                             var elrt = "<td>"+final['fx'+i][j].toFixed(2)+"</td>";
@@ -357,7 +375,7 @@ $(function() {
                         $("#l"+ik+"-"+i+"").append(elb);  
                     }
 
-                    console.log(solucao[ik].solucao);
+                    // //console.log(solucao[ik].solucao);
                     for(i = 0; i < solucao[ik].solucao.length; i++)
                     {
                         if(solucao[ik].otima)
@@ -400,7 +418,7 @@ $(function() {
                 for(i = 0; i < qtdR+1; i++)
                 {
                     var ell = "<tr id='l"+i+"'></tr>";
-                    console.log(ell);
+                    //console.log(ell);
                     $("#tbBody").append(ell);
                 }
 
@@ -410,15 +428,15 @@ $(function() {
                     $("#l"+i).append(elz);  
                 }                     
 
-                console.log(final);
+                //console.log(final);
                 vs.forEach(function(element, index, array){
                    elv = element['vr'];
                     totalv = final[elv].length;
                    for(i = 0; i < totalv; i++)
                     {
-                        //console.log(final[elv][i]);
+                        ////console.log(final[elv][i]);
                         var elva = "<td>"+final[elv][i].toFixed(2)+"</td>";
-                        console.log(elva);
+                        //console.log(elva);
                         $("#l"+i).append(elva);  
                     } 
                 })
@@ -426,7 +444,7 @@ $(function() {
                 for(i = 1; i <= qtdR; i++)
                 {
                     totalr = final['fx'+i].length;
-                    console.log(final['fx'+i][0]);
+                    //console.log(final['fx'+i][0]);
                     for(j = 0; j < totalr; j++)
                     {
                         var elrt = "<td>"+final['fx'+i][j].toFixed(2)+"</td>";
@@ -440,7 +458,7 @@ $(function() {
                     $("#l"+i).append(elb);  
                 }
 
-                console.log(solucao.solucaoFinal);
+                //console.log(solucao.solucaoFinal);
                 
                 for(i = 0; i < solucao.solucaoFinal.length; i++)
                 {
