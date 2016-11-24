@@ -25,7 +25,6 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
 <li>Sem número fixo de variáveis de decisão;</li>
 <li>Sem número fixo de restrição;</li>
 <li>Apresentar solução final em forma de relatório;</li>
-<li>Apresentar análise de sensibilidade;</li>
 <li>Exibir passo-a-passo do relatório de resultados;</li>
 <li>Tratar métodos com soluções impossíveis ou limitadas.</li>
 </ul>
@@ -256,4 +255,6 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
 
 #Conclusão
 
-<p align="justify">Durante o decorrer do processo de desenvolvimento do SimplePlan, a equipe enfrentou alguns problemas relacionados aos prazos e entregas dos MVPs definidos em projeto, porém, a entrega final combinafda foi mantida, entregando o software funcionando seguindo as solicitações do cliente, que especificou uma aplicação dinâmica e simples. A partir da entrega 11/11/2016, o programa tende a sofrer algumas atualizações referentes à melhorias no produto disponibilizado.</p>
+<p align="justify"> 
+
+Durante o decorrer do processo de desenvolvimento do SimplePlan, a equipe enfrentou alguns problemas relacionados aos prazos e entregas dos MVPs definidos em projeto, porém, a entrega final combinafda foi mantida, entregando o software funcionando seguindo as solicitações do cliente, que especificou uma aplicação dinâmica e simples. A partir da entrega 11/11/2016, o programa tende a sofrer algumas atualizações referentes à melhorias no produto disponibilizado.</p>
