@@ -25,7 +25,6 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
 <li>Sem número fixo de variáveis de decisão;</li>
 <li>Sem número fixo de restrição;</li>
 <li>Apresentar solução final em forma de relatório;</li>
-<li>Apresentar análise de sensibilidade;</li>
 <li>Exibir passo-a-passo do relatório de resultados;</li>
 <li>Tratar métodos com soluções impossíveis ou limitadas.</li>
 </ul>
@@ -83,7 +82,7 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
 <li><strong>Acessar o link da aplicação:</strong> http://simpleplan.esy.es/</li>
 <li><strong>Escolher qual será o objetivo do cálculo a ser realizado:</strong> Maximização ou Minimização;</li>
 <li><strong>Adicionar a quantidade de variáveis que integram o problema de programação linear;</strong> 
-  <p>Exemplo:</p>
+  <p>Exemplo Maximização:</p>
   <table>
   <tr>
     <th>Variável</th>
@@ -91,11 +90,27 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
      </tr>
   <tr>
   <td>X1</td>
-  <td>11</td>
+  <td>3</td>
   </tr>
  <tr>
   <td>X2</td>
-  <td>12</td>
+  <td>5</td>
+  </tr>
+</table>
+
+<p>Exemplo Minimização:</p>
+  <table>
+  <tr>
+    <th>Variável</th>
+    <th>Valor</th>
+     </tr>
+  <tr>
+  <td>X1</td>
+  <td>4</td>
+  </tr>
+ <tr>
+  <td>X2</td>
+  <td>-2</td>
   </tr>
 </table>
 
@@ -105,26 +120,36 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
 <p>Exemplo de funções objetivas e maximizar e minimizar:</p>
   <table>
   <tr>
-  <td> <strong>Max Z</strong> = 11X1 + 12X2 <= 10000</td>
+  <td> <strong>Max Z</strong> = 3X1 + 5X2 </td>
   </tr>
  <tr>
-  <td><strong>Min Z</strong> = 2X1 - 3X2 <= 30000</td>
+  <td><strong>Min Z</strong> = 4X1 - 2X2</td>
   </tr>
 </table>
-
 
 </li>
 <li><strong>Inserir as restrições do problema linear;</strong> 
-  <p>Exemplos:</p>
+  <p>Exemplo Maximização:</p>
   <table>
   <tr>
-  <td>1X1 + 4X2 <= 10000</td>
+  <td>2X1 + 4X2 <= 10</td>
   </tr>
  <tr>
-  <td>5X1 + 2X2 <= 30000</td>
+  <td>6X1 + 1X2 <= 20</td>
+  </tr>
+  <tr>
+  <td>1X1 - 1X2 <= 30</td>
   </tr>
 </table>
-
+  <p>Exemplo Minimização:</p>
+  <table>
+  <tr>
+  <td>2X1 + 1X2 <= 10</td>
+  </tr>
+ <tr>
+  <td>1X1 - 1X2 <= 8</td>
+  </tr>
+</table>
 </li>
 
 <li><strong>Escolha como deseja visualizar o relatório da solução;</strong></li>
@@ -182,15 +207,6 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
     <td>05/11/2016</td>
     <td>Entrega da versão atualizada do orçamento.</td>   
   </tr>
-  
-  <tr>
-    <td>06/11/2016</td>
-    <td>Validação dos testes da primeira versão.</td>   
-  </tr>
-  <tr>
-    <td>07/11/2016</td>
-    <td>Finalização do primeiro MVP.</td>   
-  </tr> 
   <tr>
     <td>08/11/2016</td>
     <td>Desenvolvimento  dos requisitos ainda não implementados. </td>   
@@ -205,11 +221,23 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
   </tr> 
   <tr>
     <td>11/11/2016</td>
-    <td>Entrega da versão final do Simplex.</td>   
+    <td>Entrega da primeira versão do Simplex.</td>   
   </tr>
     <tr>
-    <td>11/11/2016</td>
-    <td>Conclusão do relatório.</td>   
+    <td>16/11/2016</td>
+    <td>Altualização de interface.</td>   
+  </tr>
+   <tr>
+    <td>20/11/2016</td>
+    <td>Implementação de melhorias no simplex.</td>   
+  </tr>
+  <tr>
+    <td>23/11/2016</td>
+    <td>Entrega da versão final do SimplePlan - Simplex.</td>   
+  </tr>
+  <tr>
+    <td>23/11/2016</td>
+    <td>Conclusão do relatório final.</td>   
   </tr>
 </table>
 
@@ -227,4 +255,6 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
 
 #Conclusão
 
-<p align="justify">Durante o decorrer do processo de desenvolvimento do SimplePlan, a equipe enfrentou alguns problemas relacionados aos prazos e entregas dos MVPs definidos em projeto, porém, a entrega final combinafda foi mantida, entregando o software funcionando seguindo as solicitações do cliente, que especificou uma aplicação dinâmica e simples. A partir da entrega 11/11/2016, o programa tende a sofrer algumas atualizações referentes à melhorias no produto disponibilizado.</p>
+<p align="justify"> 
+
+Durante o decorrer do processo de desenvolvimento do SimplePlan, a equipe enfrentou alguns problemas relacionados aos prazos e entregas dos MVPs definidos em projeto, porém, a entrega final combinafda foi mantida, entregando o software funcionando seguindo as solicitações do cliente, que especificou uma aplicação dinâmica e simples. A partir da entrega 11/11/2016, o programa tende a sofrer algumas atualizações referentes à melhorias no produto disponibilizado.</p>
