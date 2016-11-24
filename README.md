@@ -208,15 +208,6 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
     <td>05/11/2016</td>
     <td>Entrega da versão atualizada do orçamento.</td>   
   </tr>
-  
-  <tr>
-    <td>06/11/2016</td>
-    <td>Validação dos testes da primeira versão.</td>   
-  </tr>
-  <tr>
-    <td>07/11/2016</td>
-    <td>Finalização do primeiro MVP.</td>   
-  </tr> 
   <tr>
     <td>08/11/2016</td>
     <td>Desenvolvimento  dos requisitos ainda não implementados. </td>   
@@ -231,11 +222,23 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
   </tr> 
   <tr>
     <td>11/11/2016</td>
-    <td>Entrega da versão final do Simplex.</td>   
+    <td>Entrega da primeira versão do Simplex.</td>   
   </tr>
     <tr>
-    <td>11/11/2016</td>
-    <td>Conclusão do relatório.</td>   
+    <td>16/11/2016</td>
+    <td>Altualização de interface.</td>   
+  </tr>
+   <tr>
+    <td>20/11/2016</td>
+    <td>Implementação de melhorias no simplex.</td>   
+  </tr>
+  <tr>
+    <td>23/11/2016</td>
+    <td>Entrega da versão final do SimplePlan - Simplex.</td>   
+  </tr>
+  <tr>
+    <td>23/11/2016</td>
+    <td>Conclusão do relatório final.</td>   
   </tr>
 </table>
 
