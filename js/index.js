@@ -190,13 +190,17 @@ $(function() {
         if($("#rdMinOpt").is(':checked'))
         {
             vs.forEach(function(element,index){
-                va = element.va*(-1)
-                variaveis.push({vr:element.vr, va:va.toString()});
+                va = element.va*(-1);
+                variaveis[index] = {vr:element.vr, va:va.toString()};
             });
         }
         else
-            variaveis = vs;
-
+        {
+            vs.forEach(function(element,index){
+                variaveis[index] = {vr:element.vr, va:element.va};
+            });
+        }
+            // variaveis = vs;
         //objetivo = JSON.stringify(objetivo);
 
         $.ajax({                                      
@@ -264,7 +268,7 @@ $(function() {
                         $("#l"+ik+"-"+i+"").append(elz);  
                     }                     
 
-                    //console.log(final);
+                    console.log(final);
                     vs.forEach(function(element, index, array){
                         elv = element['vr'];
                         totalv = final[elv].length;

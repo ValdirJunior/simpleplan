@@ -134,20 +134,10 @@ class Problem
 			array_push($v, $this->tabela[$iv][0]);
 		}
 
-		if($this->funcao == 'max')
-		{
 			foreach ($v as $a) {
 				if($a < 0)
 					return true;
 			}
-		}
-		else
-		{
-			foreach ($v as $a) {
-				if($a > 0)
-					return true;
-			}
-		}	
 
 
 
@@ -174,8 +164,6 @@ class Problem
 		
 		$m["v"] = 0;
 
-		if($this->funcao == 'max')
-		{
 			foreach($v as $a)
 			{		
 				if($a["v"] < $m["v"])
@@ -183,18 +171,7 @@ class Problem
 					$m = $a;
 				}
 			}
-		}
-		else
-		{
-			foreach($v as $a)
-			{		
-				if($a["v"] > $m["v"])
-				{
-					$m = $a;
-				}
-			}
-		}
-		echo json_encode($m);
+		//echo json_encode($m);
 		return $m["c"];
 	}
 
