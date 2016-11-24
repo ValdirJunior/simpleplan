@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<img class="img-responsive bkg-img" src="fundo.jpg">
+		<img class="img-responsive bkg-img" src="./img/fundo.jpg">
 		<h1 class="title text-center text-uppercase">SimplePlan - Simplex</h1>
 		<div class="row">
 			<div class="col-md-12 col-xs-12">
@@ -117,35 +117,37 @@
 						</button>
 				  	</div>
 
-					<div class="col-panel">
-						<h3>Limite de execução</h3>
-						<p>Número máximo de vezes que o programa pode executar</p>
-						<form class="form-inline">
-							<div class="form-group">
-								<input type="number" id="nOp" class="form-control" placeholder="Iterações" aria-describedby="basic-addon1">
-							</div>
-						</form>
-					</div>
+					<div class="col-panel row">
+						<div class="col-md-6">
+							<h3>Limite de execução</h3>
+							<p>Número máximo de vezes que o programa pode executar</p>
+							<form class="form-inline">
+								<div class="form-group">
+									<input type="number" id="nOp" class="form-control" placeholder="Iterações" aria-describedby="basic-addon1">
+								</div>
+							</form>
+						</div>
 
-					<div class="col-panel">
-						<h3>Resultado</h3>
-						<div class="radio">
-						  <label>
-						    <input type="radio" name="optionsShow" id="showAllProcess" value="showAll" checked>
-						    Mostrar todo o processo realizado (Tabelas de Execução)
-						  </label>
-						</div>
-						<div class="radio">
-						  <label>
-						    <input type="radio" name="optionsShow" id="showEachProcess" value="showEach">
-						    Controlar passo-a-passo o processo de solução
-						  </label>
-						</div>
-						<div class="radio">
-						  <label>
-						    <input type="radio" name="optionsShow" id="showResult" value="showResult">
-						    Mostrar apenas o resultado final
-						  </label>
+						<div class="col-md-6">
+							<h3>Resultado</h3>
+							<div class="radio">
+							  <label>
+							    <input type="radio" name="optionsShow" id="showAllProcess" value="showAll" checked>
+							    Mostrar todo o processo realizado (Tabelas de Execução)
+							  </label>
+							</div>
+							<div class="radio">
+							  <label>
+							    <input type="radio" name="optionsShow" id="showEachProcess" value="showEach">
+							    Controlar passo-a-passo o processo de solução
+							  </label>
+							</div>
+							<div class="radio">
+							  <label>
+							    <input type="radio" name="optionsShow" id="showResult" value="showResult">
+							    Mostrar apenas o resultado final
+							  </label>
+							</div>
 						</div>
 					</div>
 
@@ -155,7 +157,7 @@
 							<button type="button" id="btnPrevPanel" class="btn btn-default btn-sm">
 							  <span class="glyphicon glyphicon glyphicon-chevron-left" aria-hidden="true"> Anterior</span>
 							</button>
-							<button type="button" id="btnResultPanel" class="btn btn-default btn-sm">
+							<button type="button" id="btnResultPanel" class="btn btn-primary btn-sm">
 							  <span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"> Resolver</span>
 							</button>
 						</center>
