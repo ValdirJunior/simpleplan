@@ -1,4 +1,4 @@
-#SimplePlan
+# SimplePlan
 
 Link da aplicação online: http://simpleplan.esy.es/ 
 
@@ -13,13 +13,13 @@ Danielle Guindas Peraccini.        	RA: 54502-3<br/>
 Marina dos Santos Beretta.          RA: 54272-5<br/>
 Valdir A. P. Junior.                RA: 53582-6<br/>
 
-#Introdução
+## Introdução
 <p align="justify">Este documento fornece uma visão geral do aplicativo <strong>SimplePlan</strong> que foi projetado a partir da utilização do método <strong>Simplex</strong>, a fim de resolver problemas de <strong>programação linear</strong> com objetivo de maximizar e minimizar.
 O Simplex é um dos algoritmos mais importantes descobertos neste século, o mesmo permite encontrar a solução ótima de um problema de Programação Linear de forma eficiente, onde são estabelecidas variáveis e restrições para as variáveis com intuito de testar as possibilidades de otimização dos resultados.
 A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viable Product)</strong> que está diretamente conectada aos conceitos de Lean Starup e consiste num conjunto de testes sobre a viabilidade do negócio, onde várias versões do produto são liberadas aos stakeholders para se obter um feedback que agregue no desenvolvimento, ajuste e melhorias do projeto.</p>
 
 
-#Requisitos do cliente
+## Requisitos do cliente
 
 <ul>
 <li>Sem número fixo de variáveis de decisão;</li>
@@ -30,7 +30,7 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
 </ul>
 
 
-#Objetivos
+## Objetivos
 <p align="justify">Pensando na usabilidade do produto e na experiência do usuário com a aplicação, foram definidos como objetivos alguns valores considerados relevantes para o projeto, seguem:</p>
 <ul>
 <li><strong>Dinamismo:</strong> Utilização de parâmetros dinâmicos para que a solução atenda aos problemas de programação linear do cliente.</li>
@@ -39,7 +39,7 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
 <li><strong>Didático:</strong> Estruturação de técnicas simples e intuitivas para que o usuário possa facilmente identificar as funções de cada elemento da interface. </li>
 </ul>
 
-#Funcionalidades
+## Funcionalidades
 <p align="justify">Dentro do escopo estabelecido, foram definidas nove principais funcionalidades para atender a todas as solicitações do cliente, sendo estas as que seguem:</p>
 <ol>
 <li><strong>Escolha do tipo de cálculo:</strong> Opção para selecionar o tipo entre as alternativas de maximizar ou minimizar o resultado da solução.</li>
@@ -53,7 +53,7 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
 <li><strong>Interpretação econômica do resultado:</strong> Apresentar apenas a solução final do problema, sem maiores detalhes.</li>
 </ol>
 
-#Ferramentas
+## Ferramentas
 <table>
   <tr>
     <th>Tecnologias</th>
@@ -74,7 +74,7 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
 
 </table>
 
-#Manual de utilização do SimplePlan
+## Manual de utilização do SimplePlan
 
 <p>Seguem abaixo informações explicativas referente ao uso do SimplePlan:</p>
 
@@ -158,14 +158,14 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
 </ol>
 <p>Obs: É possível avançar e retornar as etapas de inserção dos dados.</p>
 
-#Problemas e Limitações
+## Problemas e Limitações
 <p align="justify">No projeto de implementação do Simplex nesse projeto, algumas limitações de desenvolvimento foram estipuladas: </p>
 <ul>
 <li>Limite de 50 iterações para a execução da solução.</li>
 <li>As restrições devem ser menores ou iguais a 0. </li>
 </ul>
 
-#Datas Importantes 
+## Datas Importantes 
 
 <table>
   <tr>
@@ -241,7 +241,7 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
   </tr>
 </table>
 
-#Compatibilidade
+## Compatibilidade
 <table>
   <tr>
     <th>Navegadores</th>
@@ -253,6 +253,6 @@ A aplicação foi elaborada utilizando a técnica de <strong>MVP  (Minimum Viabl
   </tr>
 </table>
 
-#Conclusão
+## Conclusão
 
 <p align="justify"> Neste trabalho produzimos um software que utiliza o método <strong>Simplex</strong> na resolução de problemas de <strong>programação linear</strong> com objetivo de <strong>maximizar e minimizar</strong>. A aplicação foi projetada com base na técnica de MVP, que está diretamente conectada aos conceitos de Lean Starup e tem intuido de efetuar testes de verificação da viabilidade do negócio, dessa forma, foram disponibilizadas versões prévias do produto aos stakeholders, a fim de se obter um feedback que agregasse positivamente no desenvolvimento, ajustes e melhorias do programa. Durante o decorrer do processo de implementação do SimplePlan, a equipe enfrentou alguns problemas relacionados aos prazos e entregas dos MVPs definidos em projeto, porém,  os casos foram reportados aos mais interessados e, em comum acordo, as datas foram atualizadas. O software foi entregue seguindo as solicitações do cliente, disponibilizando um produto dinâmico e simples, atendendo os objetivos principais referentes a maximização e minimização de problemas de programação linear.</p>
